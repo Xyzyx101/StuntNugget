@@ -2,11 +2,13 @@ package com.stuntnugget.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.stuntnugget.game.Game;
+import com.stuntnugget.game.StuntNugget;
 
 public class DesktopLauncher {
-	public static void main (String[] arg) {
+	public static void main(String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new Game(), config);
+		config.width = 1024;
+		config.height = 768;
+		new LwjglApplication(new StuntNugget(), config);
 	}
 }
