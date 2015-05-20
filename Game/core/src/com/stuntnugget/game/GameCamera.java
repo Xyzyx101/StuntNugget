@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameCamera extends OrthographicCamera {
-
 	private StuntNugget game;
+	
 	GameCamera(StuntNugget game) {
 		this.game = game;
 	}
@@ -16,5 +16,4 @@ public class GameCamera extends OrthographicCamera {
 		new FitViewport(game.SCREEN_WIDTH, game.SCREEN_HEIGHT, this);
 		update();
 	}
-
 }

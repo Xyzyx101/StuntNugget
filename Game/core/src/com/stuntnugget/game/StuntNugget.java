@@ -9,11 +9,11 @@ public class StuntNugget extends Game {
 	//used for a screen rendering
 	public final float SCREEN_WIDTH = 1000;
 	public final float SCREEN_HEIGHT = 1000;
+	public final float PPM = 100; // Pixels per meter to convert screen coords to Box2D
 	
 	public SpriteBatch guiBatch;
 	
 	private GameCamera camera;
-	
 	
 	@Override
 	public void create() {
