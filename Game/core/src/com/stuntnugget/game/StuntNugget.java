@@ -10,7 +10,11 @@ public class StuntNugget extends Game {
 	public final float SCREEN_WIDTH = 1000;
 	public final float SCREEN_HEIGHT = 1000;
 	public final float PPM = 100; // Pixels per meter to convert screen coords to Box2D
-	
+	public final float MPP = 1f / PPM; // Meters per pixel
+	public final float[] spriteToBox2DMatrix = { MPP, 0f, 0f, 0f, 
+												0f, MPP, 0f, 0f,
+												0f, 0f, 1f, 0f,
+												0f, 0f, 0f, 1f};
 	public SpriteBatch guiBatch;
 	
 	private GameCamera camera;
@@ -40,6 +44,8 @@ public class StuntNugget extends Game {
 		Gdx.app.debug("StuntNegget", "Screen Resized: Width:" + width + " Height:" + height);
 		float aspectRatio = (float) width / (float) height;
 		camera.resize(aspectRatio);
+		camera.zoom = MPP;
+		camera.update();
 	}
 	
 	@Override

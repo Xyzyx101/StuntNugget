@@ -45,8 +45,8 @@ public class MainMenuScreen extends ScreenAdapter {
 		if (Gdx.input.justTouched()) {
 			camera.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(),
 					0));
-			Gdx.app.debug("MainMenu", "Tap Coords: x:" + Gdx.input.getX()
-					+ " y:" + Gdx.input.getY());
+			Gdx.app.debug("MainMenu", "Tap Coords: x:" + touchPoint.x
+					+ " y:" + touchPoint.y);
 			if (playBounds.contains(touchPoint.x, touchPoint.y)) {
 				// Assets.playSound(Assets.clickSound);
 
@@ -80,7 +80,7 @@ public class MainMenuScreen extends ScreenAdapter {
 	public void draw() {
 
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		camera.position.set(500f, 500f, 0);
+		camera.position.set(100f, 100f, 0);
 		camera.update();
 
 		guiBatch.setProjectionMatrix(camera.combined);

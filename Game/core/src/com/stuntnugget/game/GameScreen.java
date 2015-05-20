@@ -5,14 +5,27 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.rube.RubeScene;
+import com.badlogic.gdx.rube.reader.RubeSceneReader;
 
 public class GameScreen extends ScreenAdapter {
-	StuntNugget game;
-	GameCamera camera;
-	GL20 gl;
-	SpriteBatch spriteBatch;
-	
-	//FIXME
+	private StuntNugget game;
+	private GameCamera camera;
+	private GL20 gl;
+	private SpriteBatch spriteBatch;
+	private Box2DDebugRenderer debugRenderer;
+	// Reader to load a scene from a file
+	private RubeSceneReader reader;
+	// Your scene
+	private RubeScene scene;
+	private String sceneFileName;
+
+	Vector3 touchPoint;
+
+	// FIXME
 	Texture img;
 
 	public GameScreen(StuntNugget game) {
@@ -21,24 +34,50 @@ public class GameScreen extends ScreenAdapter {
 		gl = Gdx.gl;
 		gl.glClearColor(1, 0, 0, 1);
 		spriteBatch = new SpriteBatch();
+		debugRenderer = new Box2DDebugRenderer();
 
 		// FIXME
 		img = new Texture("badlogic.jpg");
+
+		reader = new RubeSceneReader();
+		// 2. Read your scene
+		sceneFileName = "rube/floor.json";
+		scene = reader.readScene(Gdx.files.internal(sceneFileName));
+		touchPoint = new Vector3();
+	}
+
+	@Override
+	public void dispose() {
+		scene.world.dispose();
+		scene.clear();
+		debugRenderer.dispose();
+		spriteBatch.dispose();
 	}
 
 	public void update() {
-		camera.position.set(500f, 500f, 0);
+		if (Gdx.input.justTouched()) {
+			camera.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(),
+					0));
+			Gdx.app.debug("GameScreen", "Tap Coords: x:" + touchPoint.x + " y:"
+					+ touchPoint.y);
+		}
+		scene.world.step(1.0f / scene.stepsPerSecond, scene.velocityIterations,
+				scene.positionIterations);
+		camera.position.set(5f, 5f, 0);
 		camera.update();
 	}
 
 	public void draw() {
 
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		spriteBatch.setProjectionMatrix(camera.combined);
+		Matrix4 scaledMat = new Matrix4(camera.combined);
+		Matrix4.mul(scaledMat.val, game.spriteToBox2DMatrix);
+		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
-		spriteBatch.draw(img, 200f, 200f);
+		spriteBatch.draw(img, 2f * game.PPM, 2f * game.PPM);
 		spriteBatch.end();
+
+		debugRenderer.render(scene.world, camera.combined);
 
 		// game.batcher.setProjectionMatrix(guiCam.combined);
 		//
