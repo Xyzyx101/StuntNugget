@@ -12,7 +12,6 @@ import com.badlogic.gdx.rube.RubeScene;
 import com.badlogic.gdx.rube.reader.RubeSceneReader;
 
 public class GameScreen extends ScreenAdapter {
-	private StuntNugget game;
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
@@ -29,7 +28,6 @@ public class GameScreen extends ScreenAdapter {
 	Texture img;
 
 	public GameScreen(StuntNugget game) {
-		this.game = game;
 		camera = game.getCamera();
 		gl = Gdx.gl;
 		gl.glClearColor(1, 0, 0, 1);
@@ -71,10 +69,10 @@ public class GameScreen extends ScreenAdapter {
 
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		Matrix4 scaledMat = new Matrix4(camera.combined);
-		Matrix4.mul(scaledMat.val, game.spriteToBox2DMatrix);
+		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
 		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
-		spriteBatch.draw(img, 2f * game.PPM, 2f * game.PPM);
+		spriteBatch.draw(img, 2f * StuntNugget.PPM, 2f * StuntNugget.PPM);
 		spriteBatch.end();
 
 		debugRenderer.render(scene.world, camera.combined);
@@ -100,10 +98,5 @@ public class GameScreen extends ScreenAdapter {
 	public void render(float delta) {
 		update();
 		draw();
-	}
-
-	@Override
-	public void pause() {
-		// Settings.save();
 	}
 }

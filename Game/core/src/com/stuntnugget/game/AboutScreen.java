@@ -5,24 +5,17 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 
-public class MainMenuScreen extends UIScreen {
+public class AboutScreen extends UIScreen {
 	UIButton[] uiButtons;
 
-	public MainMenuScreen(StuntNugget game) {
+	public AboutScreen(StuntNugget game) {
 		super(game);
 		touchPoint = new Vector3();
 
-		float buttonWidth = 466f;
-		float buttonHeight = 176f;
-		float centerX = (StuntNugget.SCREEN_WIDTH - buttonWidth) * 0.5f;
-		uiButtons = new UIButton[4];
-		uiButtons[0] = new UIButton("Play", centerX, 698f, buttonWidth,
-				buttonHeight);
-		uiButtons[1] = new UIButton("Options", centerX, 507f, buttonWidth,
-				buttonHeight);
-		uiButtons[2] = new UIButton("About", centerX, 316f, buttonWidth,
-				buttonHeight);
-		uiButtons[3] = new UIButton("Exit", centerX, 125f, buttonWidth,
+		float buttonWidth = 233f;
+		float buttonHeight = 88f;
+		uiButtons = new UIButton[1];
+		uiButtons[0] = new UIButton("Back", 10f, 10f, buttonWidth,
 				buttonHeight);
 	}
 
@@ -34,15 +27,10 @@ public class MainMenuScreen extends UIScreen {
 			Gdx.app.debug("MainMenu", "Tap Coords: x:" + touchPoint.x + " y:"
 					+ touchPoint.y);
 			if (uiButtons[0].contains(touchPoint.x, touchPoint.y)) {
-				game.setScreen(new GameScreen(game));
-			} else if (uiButtons[1].contains(touchPoint.x, touchPoint.y)) {
-				game.setScreen(new OptionsScreen(game));
-			} else if (uiButtons[2].contains(touchPoint.x, touchPoint.y)) {
-				game.setScreen(new AboutScreen(game));
-			} else if (uiButtons[3].contains(touchPoint.x, touchPoint.y)) {
-				Gdx.app.error("MainMenu", "Impliment game exit");
+				game.setScreen(new MainMenuScreen(game));
 			}
 		}
+
 	}
 
 	@Override
@@ -60,4 +48,5 @@ public class MainMenuScreen extends UIScreen {
 		}
 		guiBatch.end();
 	}
+
 }

@@ -7,14 +7,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class StuntNugget extends Game {
 	//used for a screen rendering
-	public final float SCREEN_WIDTH = 1000;
-	public final float SCREEN_HEIGHT = 1000;
-	public final float PPM = 100; // Pixels per meter to convert screen coords to Box2D
-	public final float MPP = 1f / PPM; // Meters per pixel
-	public final float[] spriteToBox2DMatrix = { MPP, 0f, 0f, 0f, 
-												0f, MPP, 0f, 0f,
-												0f, 0f, 1f, 0f,
-												0f, 0f, 0f, 1f};
+	public static final float SCREEN_WIDTH = 1000;
+	public static final float SCREEN_HEIGHT = 1000;
+	public static final float PPM = 100; // Pixels per meter to convert screen coords to Box2D
+	public static final float MPP = 1f / PPM; // Meters per pixel
+	public static final float[] spriteToBox2DMatrix = { MPP, 0f, 0f, 0f, 
+														0f, MPP, 0f, 0f,
+														0f, 0f, 1f, 0f,
+														0f, 0f, 0f, 1f};
 	public SpriteBatch guiBatch;
 	
 	private GameCamera camera;
@@ -23,10 +23,9 @@ public class StuntNugget extends Game {
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		guiBatch = new SpriteBatch();
-		camera = new GameCamera(this);
+		camera = new GameCamera();
 		
-		//TODO
-		//Settings.load();
+		Settings.instance().load();
 		
 		//TODO
 		//Assets.load();
@@ -50,11 +49,13 @@ public class StuntNugget extends Game {
 	
 	@Override
 	public void pause() {
+		Settings.instance().save();
 		super.pause();
 	}
 	
 	@Override
 	public void resume() {
+		Settings.instance().load();
 		super.resume();
 	}
 	

@@ -72,6 +72,7 @@
           
           {
             "density" : 1,
+            "filter-maskBits" : 65534,
             "friction" : 0.2,
             "id" : 1,
             "name" : "fixture0",
@@ -116,13 +117,178 @@
           "y" : 0.2790694534778595
         },
         "massData-mass" : 1.775443434715271,
-        "name" : "body0",
+        "name" : "body",
         "position" : 
         {
           "x" : -0.04445909708738327,
           "y" : 0.9781001806259155
         },
         "type" : "dynamic"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "filter-maskBits" : 65534,
+            "friction" : 0.2,
+            "id" : 2,
+            "name" : "fixture1",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                0.03886753320693970,
+                0.4807510375976563,
+                -0.1304846405982971,
+                -0.7410793900489807
+              ],
+              "y" : 
+              [
+                -0.5754605531692505,
+                0.5182441473007202,
+                0.7886925339698792,
+                -0.4508957266807556
+              ]
+            }
+          }
+        ],
+        "id" : 2,
+        "linearVelocity" : 0,
+        "massData-I" : 0.1783600449562073,
+        "massData-center" : 
+        {
+          "x" : -0.1022728756070137,
+          "y" : 0.05981856212019920
+        },
+        "massData-mass" : 0.9154448509216309,
+        "name" : "rocket",
+        "position" : 
+        {
+          "x" : -0.6362795829772949,
+          "y" : 1.610064148902893
+        },
+        "type" : "dynamic"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "filter-maskBits" : 65534,
+            "friction" : 0.2,
+            "id" : 3,
+            "name" : "fixture2",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                -0.7825247049331665,
+                0.5980225801467896,
+                0.5980225801467896,
+                -0.7825247049331665
+              ],
+              "y" : 
+              [
+                -0.1509877443313599,
+                -0.3435449600219727,
+                0.3435446023941040,
+                0.1509877443313599
+              ]
+            }
+          }
+        ],
+        "id" : 3,
+        "linearVelocity" : 0,
+        "massData-I" : 0.1189830079674721,
+        "massData-center" : 
+        {
+          "x" : -0.002660018857568502,
+          "y" : -1.008816994385597e-007
+        },
+        "massData-mass" : 0.6827254891395569,
+        "name" : "body0",
+        "position" : 
+        {
+          "x" : 0.6208211183547974,
+          "y" : 1.800019145011902
+        },
+        "type" : "dynamic"
+      }
+    ],
+    "metajoint" : 
+    [
+      
+      {
+        "anchorA" : 
+        {
+          "x" : 0.1914050430059433,
+          "y" : -0.03483976423740387
+        },
+        "anchorB" : 
+        {
+          "x" : -0.3991860449314117,
+          "y" : 0.5938447713851929
+        },
+        "bodyA" : 2,
+        "bodyB" : 1,
+        "collideConnected" : false,
+        "dampingRatio" : 0,
+        "frequency" : 0,
+        "id" : 5,
+        "name" : "joint0",
+        "referenceAngle" : 0,
+        "type" : "weld"
+      },
+      
+      {
+        "anchorA" : 
+        {
+          "x" : -0.6014950275421143,
+          "y" : 0.005832199938595295
+        },
+        "anchorB" : 
+        {
+          "x" : 0.06378550082445145,
+          "y" : 0.8277509808540344
+        },
+        "bodyA" : 3,
+        "bodyB" : 1,
+        "collideConnected" : false,
+        "enableLimit" : false,
+        "enableMotor" : true,
+        "id" : 6,
+        "lowerLimit" : 0,
+        "maxMotorTorque" : 1,
+        "motorSpeed" : 0.1745329201221466,
+        "name" : "joint1",
+        "referenceAngle" : 0,
+        "type" : "revolute",
+        "upperLimit" : 0
       }
     ],
     "positionIterations" : 3,
