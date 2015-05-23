@@ -8,12 +8,18 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.utils.Array;
 import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
 
 public class GameScreen extends ScreenAdapter {
-	
-	
+	public static short NO_COLLISION = 0x0000;
+	public static short GROUND_LAYER = 0x0001;
+	public static short PLAYER_BODY_LAYER = 0x0010;
+	public static short PLAYER_COSMETICS = 0x0100;
+		
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
@@ -50,9 +56,14 @@ public class GameScreen extends ScreenAdapter {
 		// 2. Read your scene
 		sceneFileName = "rube/floor.json";
 		scene = loader.loadScene(Gdx.files.internal(sceneFileName));
-		
-
-		player = new Player(5f, 10f, scene.getWorld());
+		Filter filter = new Filter();
+		filter.categoryBits = GROUND_LAYER;
+		filter.maskBits = PLAYER_BODY_LAYER;
+		Array<Fixture> fixtures = scene.getFixtures();
+		for(int i = 0; i < fixtures.size; ++i) {
+			fixtures.get(i).setFilterData(filter);
+		}
+		player = new Player(5f, 12f, scene.getWorld());
 	}
 
 	@Override

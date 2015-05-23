@@ -13,7 +13,15 @@
 			[
 				
 				{
-					"density" : 1,
+					"customProperties" : 
+					[
+						
+						{
+							"name" : "type",
+							"string" : "cosmetic"
+						}
+					],
+					"density" : 0.1,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture2",
@@ -40,13 +48,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.1189830079674721,
+			"massData-I" : 0.01189830061048269,
 			"massData-center" : 
 			{
 				"x" : -0.002660018857568502,
 				"y" : -1.008816994385597e-007
 			},
-			"massData-mass" : 0.6827254891395569,
+			"massData-mass" : 0.06827255338430405,
 			"name" : "body0",
 			"position" : 
 			{
@@ -64,7 +72,15 @@
 			[
 				
 				{
-					"density" : 1,
+					"customProperties" : 
+					[
+						
+						{
+							"name" : "type",
+							"string" : "cosmetic"
+						}
+					],
+					"density" : 0.1,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture1",
@@ -91,13 +107,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.1783600449562073,
+			"massData-I" : 0.01783600449562073,
 			"massData-center" : 
 			{
 				"x" : -0.1022728756070137,
 				"y" : 0.05981856212019920
 			},
-			"massData-mass" : 0.9154448509216309,
+			"massData-mass" : 0.09154448658227921,
 			"name" : "rocket",
 			"position" : 
 			{
@@ -115,7 +131,15 @@
 			[
 				
 				{
-					"density" : 1,
+					"customProperties" : 
+					[
+						
+						{
+							"name" : "type",
+							"string" : "main"
+						}
+					],
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture0",
@@ -144,7 +168,15 @@
 				},
 				
 				{
-					"density" : 1,
+					"customProperties" : 
+					[
+						
+						{
+							"name" : "type",
+							"string" : "main"
+						}
+					],
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture0",
@@ -159,7 +191,15 @@
 				},
 				
 				{
-					"density" : 1,
+					"customProperties" : 
+					[
+						
+						{
+							"name" : "type",
+							"string" : "main"
+						}
+					],
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture0",
@@ -174,13 +214,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.9619964361190796,
+			"massData-I" : 1.923992872238159,
 			"massData-center" : 
 			{
 				"x" : -0.01632766425609589,
 				"y" : 0.2790694534778595
 			},
-			"massData-mass" : 1.775443434715271,
+			"massData-mass" : 3.550886869430542,
 			"name" : "body",
 			"position" : 
 			{
@@ -254,8 +294,8 @@
 			"enableMotor" : true,
 			"jointSpeed" : 0,
 			"lowerLimit" : 0,
-			"maxMotorTorque" : 1,
-			"motorSpeed" : 0.1745329201221466,
+			"maxMotorTorque" : 2,
+			"motorSpeed" : 0,
 			"name" : "joint1",
 			"refAngle" : 0,
 			"type" : "revolute",
