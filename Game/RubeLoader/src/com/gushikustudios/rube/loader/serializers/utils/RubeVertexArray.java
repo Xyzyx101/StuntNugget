@@ -1,4 +1,4 @@
-package com.badlogic.gdx.rube.reader.serializer.utils;
+package com.gushikustudios.rube.loader.serializers.utils;
 
 import com.badlogic.gdx.math.Vector2;
 
@@ -15,18 +15,16 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class RubeVertexArray 
 {
-	/** x coordinates of the vertices */
 	public float x[];
-	/** y coordinates of the vertices */
 	public float y[];
 	
 	/**
 	 * 
-	 * @return a new Vector2 Array. Can be null if x and y don't meet the requirements.
+	 * @return a new Vector2 Array. Can be null if x and y don't meet the requirement
 	 */
 	public Vector2[] toVector2()
 	{
-		// lenght of x and y should be the same and not null
+		// length of x and y should be the same and not null
 		if((x == null || y == null) || x.length != y.length || x.length == 0)
 			return null;
 		

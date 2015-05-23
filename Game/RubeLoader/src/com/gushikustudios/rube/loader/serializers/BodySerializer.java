@@ -1,4 +1,4 @@
-package com.badlogic.gdx.rube.reader.serializer;
+package com.gushikustudios.rube.loader.serializers;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -7,31 +7,30 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.MassData;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.rube.RubeCustomProperty;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
+import com.gushikustudios.rube.RubeDefaults;
+import com.gushikustudios.rube.RubeScene;
 
-/**
- * Serializer to read a {@link Body} from a RUBE .json file.
- * @author clement.vayer
- */
-@SuppressWarnings("rawtypes")
-public class RubeBodySerializer extends RubeSerializer<Body>
+public class BodySerializer extends ReadOnlySerializer<Body>
 {
 	private 	  World world;
 	private final BodyDef def = new BodyDef();
-	private final RubeFixtureSerializer fixtureSerializer;
+	private final FixtureSerializer fixtureSerializer;
+	private RubeScene scene;
 
-	public RubeBodySerializer(Json _json)
-	{
-		super();
+	public BodySerializer(RubeScene scene, Json json)
+	{		
+		this.scene = scene;
 		
-		fixtureSerializer = new RubeFixtureSerializer(_json);
-		_json.setSerializer(Fixture.class, fixtureSerializer);
+		fixtureSerializer = new FixtureSerializer(scene,json);
 		
 		// as some Vector2 can be stored as a float we need a custom Vector2 Serializer :(
-		_json.setSerializer(Vector2.class, new Vector2Serializer());
+		json.setSerializer(Vector2.class, new Vector2Serializer());
+		
+		json.setSerializer(Fixture.class, fixtureSerializer);
 	}
 	
 	public void setWorld(World _world)
@@ -39,6 +38,7 @@ public class RubeBodySerializer extends RubeSerializer<Body>
 		world = _world;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Body read(Json json, JsonValue jsonData, Class type) 
 	{
@@ -90,18 +90,17 @@ public class RubeBodySerializer extends RubeSerializer<Body>
 					body.setMassData(massData);
 			}
 		}
-		
-		fixtureSerializer.setScene(scene);
-		fixtureSerializer.setBody(body);
-		json.readValue("fixture", Array.class, Fixture.class, jsonData);
+		scene.parseCustomProperties(json, body, jsonData);
 		
 		String name = json.readValue("name", String.class, jsonData);
+		if (name != null)
+		{
+		   scene.putNamed(name, body);
+		}
 		
-		RubeCustomProperty customProperty = null;
-		if(json.getSerializer(RubeCustomProperty.class) != null)
-			customProperty = json.readValue("customProperties", RubeCustomProperty.class, jsonData);
-	
-		scene.onAddBody(body, name, customProperty);
+		fixtureSerializer.setBody(body);
+		
+		scene.addFixtures(json.readValue("fixture", Array.class, Fixture.class, jsonData));
 		
 		return body;
 	}

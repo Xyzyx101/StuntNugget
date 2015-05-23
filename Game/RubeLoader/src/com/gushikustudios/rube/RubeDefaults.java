@@ -1,4 +1,4 @@
-package com.badlogic.gdx.rube.reader.serializer;
+package com.gushikustudios.rube;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -13,8 +13,7 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.badlogic.gdx.physics.box2d.joints.RopeJointDef;
 import com.badlogic.gdx.physics.box2d.joints.WeldJointDef;
 import com.badlogic.gdx.physics.box2d.joints.WheelJointDef;
-import com.badlogic.gdx.rube.RubeImage;
-import com.badlogic.gdx.rube.RubeScene;
+import com.gushikustudios.rube.loader.serializers.utils.RubeImage;
 
 /**
  * Static data that give the default values to use for a bunch of parameters.
@@ -23,16 +22,6 @@ import com.badlogic.gdx.rube.RubeScene;
  */
 public class RubeDefaults 
 {
-	@SuppressWarnings("unused")
-	private static Fixture fixture = new Fixture(); // done to call ctor of fixture and init default values
-	
-	public static class Scene
-	{
-		public static		int   				stepsPerSecond 		= 60;
-		public static		int   				positionIterations 	= 3;
-		public static		int   				velocityIterations 	= 8;
-	}
-	
 	public static class World
 	{
 		public static final Vector2 			gravity 			= new Vector2(0.0f, -9.81f);
@@ -40,20 +29,30 @@ public class RubeDefaults
 		public static 		boolean				autoClearForces	 	= true;
 		public static 		boolean				continuousPhysics 	= true;
 		public static 		boolean				warmStarting 		= true;
+		
+		public static		int   				stepsPerSecond 		= 60;
+		public static		int   				positionIterations 	= 3;
+		public static		int   				velocityIterations 	= 8;
 	}
 	public static class Body
 	{
 		public static final BodyDef 			definition 		= new BodyDef();
 	}
+	
+   public static class RubeFixtureDef extends FixtureDef
+   {
+      public RubeFixtureDef()
+      {
+         super();
+         friction = 0; // Mario defined this as 0.2 in FixtureDef.  If it's 0 in RUBE, then it doesn't appear in the .JSON
+      }
+   }
+   
 	public static class Fixture
 	{
-		public static final FixtureDef 			definition 		= new FixtureDef();
-		
-		Fixture()
-		{
-			definition.friction = 0.0f;
-		}
+		public static final FixtureDef 			definition 		= new RubeFixtureDef();
 	}
+	
 	public static class Joint
 	{
 		public static final boolean				collideConnected= false;
@@ -71,7 +70,8 @@ public class RubeDefaults
 	
 	public static class Image
 	{
-		public static final RubeImage image = new RubeImage();
-		public static final int [] colorArray = new int[]{255,255,255,255};
+	   public static final RubeImage image = new RubeImage();
+	   
+	   public static final int [] colorArray = new int[]{255,255,255,255};
 	}
 }

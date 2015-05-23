@@ -1,4 +1,4 @@
-package com.badlogic.gdx.rube.reader.serializer;
+package com.gushikustudios.rube.loader.serializers;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -8,32 +8,28 @@ import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.rube.RubeCustomProperty;
 import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
 import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.rube.reader.serializer.utils.RubeVertexArray;
+import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
+import com.gushikustudios.rube.RubeDefaults;
+import com.gushikustudios.rube.RubeScene;
+import com.gushikustudios.rube.loader.serializers.utils.RubeVertexArray;
 
-/**
- * Serializer to read a {@link Fixture} from a RUBE .json file.
- * @author clement.vayer
- */
-@SuppressWarnings("rawtypes")
-class RubeFixtureSerializer extends RubeSerializer<Fixture>
+public class FixtureSerializer extends ReadOnlySerializer<Fixture>
 {
 	private Body body;
 	private final ChainShapeSerializer 	 chainShapeSerializer;
+	private RubeScene scene;
 	
-	public RubeFixtureSerializer(Json _json)
-	{
-		super();
-		
+	public FixtureSerializer(RubeScene scene, Json json)
+	{		
+		this.scene = scene;
 		chainShapeSerializer	= new ChainShapeSerializer();
 		
-		_json.setSerializer(PolygonShape.class, new PolygonShapeSerializer());
-		_json.setSerializer(EdgeShape.class, new EdgeShapeSerializer());
-		_json.setSerializer(CircleShape.class, new CircleShapeSerializer());
-		_json.setSerializer(ChainShape.class, chainShapeSerializer);
+		json.setSerializer(PolygonShape.class, new PolygonShapeSerializer());
+		json.setSerializer(EdgeShape.class, new EdgeShapeSerializer());
+		json.setSerializer(CircleShape.class, new CircleShapeSerializer());
+		json.setSerializer(ChainShape.class, chainShapeSerializer);
 	}
 	
 	void setBody(Body _body)
@@ -41,21 +37,23 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 		body = _body;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Fixture read(Json json, JsonValue jsonData, Class type) 
 	{
 		if(body == null)
 			return null;
+			
+		json.setIgnoreUnknownFields(true);
 		
 		FixtureDef defaults = RubeDefaults.Fixture.definition;
-		
 		FixtureDef def = new FixtureDef();
-		
+		json.readFields(def, jsonData);
 		def.friction = json.readValue("friction", float.class, defaults.friction, jsonData);
 		def.density = json.readValue("density", float.class, defaults.density, jsonData);
 		def.restitution = json.readValue("restitution", float.class, defaults.restitution, jsonData);
 		def.isSensor = json.readValue("sensor", boolean.class, defaults.isSensor, jsonData);
-		
+
 		def.filter.maskBits = json.readValue("filter-maskBits", short.class, defaults.filter.maskBits, jsonData);
 		def.filter.categoryBits = json.readValue("filter-categoryBits", short.class, defaults.filter.categoryBits, jsonData);
 		def.filter.groupIndex = json.readValue("filter-groupIndex", short.class, defaults.filter.groupIndex, jsonData);
@@ -112,18 +110,18 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 		
 		Fixture fixture = body.createFixture(def);
 		def.shape.dispose();
+		scene.parseCustomProperties(json, fixture, jsonData);
 		String name = json.readValue("name", String.class, jsonData);
-		
-		RubeCustomProperty customProperty = null;
-		if(json.getSerializer(RubeCustomProperty.class) != null)
-			customProperty = json.readValue("customProperties", RubeCustomProperty.class, jsonData);
-		
-		scene.onAddFixture(fixture, name, customProperty);
+		if (name != null)
+		{
+		   scene.putNamed(name, fixture);
+		}
 		return fixture;
 	}
 	
-	static class CircleShapeSerializer extends ReadOnlySerializer<CircleShape>
+	public static class CircleShapeSerializer extends ReadOnlySerializer<CircleShape>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public CircleShape read(Json json, JsonValue jsonData, Class type)
 		{			
@@ -143,8 +141,9 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 		}
 	}
 	
-	static class PolygonShapeSerializer extends ReadOnlySerializer<PolygonShape>
+	public static class PolygonShapeSerializer extends ReadOnlySerializer<PolygonShape>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public PolygonShape read(Json json, JsonValue jsonData, Class type)
 		{
@@ -156,12 +155,14 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 			
 			PolygonShape shape = new PolygonShape();
 			shape.set(vertices.toVector2());
+
 			return shape; 
 		}
 	}
 	
-	static class EdgeShapeSerializer extends ReadOnlySerializer<EdgeShape>
+	public static class EdgeShapeSerializer extends ReadOnlySerializer<EdgeShape>
 	{		
+		@SuppressWarnings("rawtypes")
 		@Override
 		public EdgeShape read(Json json, JsonValue jsonData, Class type)
 		{
@@ -193,7 +194,7 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 		}
 	}
 	
-	static class ChainShapeSerializer extends ReadOnlySerializer<ChainShape>
+	public static class ChainShapeSerializer extends ReadOnlySerializer<ChainShape>
 	{		
 		private boolean readloop;
 		
@@ -202,6 +203,7 @@ class RubeFixtureSerializer extends RubeSerializer<Fixture>
 			readloop = _readloop;
 		}
 		
+		@SuppressWarnings("rawtypes")
 		@Override
 		public ChainShape read(Json json, JsonValue jsonData, Class type)
 		{

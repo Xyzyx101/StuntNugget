@@ -1,4 +1,4 @@
-package com.badlogic.gdx.rube.reader.serializer;
+package com.gushikustudios.rube.loader.serializers;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -16,29 +16,25 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.badlogic.gdx.physics.box2d.joints.RopeJointDef;
 import com.badlogic.gdx.physics.box2d.joints.WeldJointDef;
 import com.badlogic.gdx.physics.box2d.joints.WheelJointDef;
-import com.badlogic.gdx.rube.RubeCustomProperty;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Json.ReadOnlySerializer;
+import com.gushikustudios.rube.RubeDefaults;
+import com.gushikustudios.rube.RubeScene;
 
-/**
- * Serializer to read a {@link Joint} from a RUBE .json file.
- * @author clement.vayer
- */
-@SuppressWarnings("rawtypes")
-class RubeJointSerializer extends RubeSerializer<Joint>
+public class JointSerializer extends ReadOnlySerializer<Joint>
 {
 	World			world;
 	Array<Body> 	bodies;
 	Array<Joint> 	joints;
 	
+	private RubeScene scene;
 	private final MouseJointDefSerializer mouseJointDefSerializer;
 	
-	public RubeJointSerializer(Json _json)
+	public JointSerializer(RubeScene scene,Json _json)
 	{
-		super();
-		
+		this.scene = scene;
 		_json.setSerializer(RevoluteJointDef.class, 	new RevoluteJointDefSerializer());
 		_json.setSerializer(PrismaticJointDef.class, 	new PrismaticJointDefSerializer());
 		_json.setSerializer(PulleyJointDef.class, 		new PulleyJointDefSerializer());
@@ -61,6 +57,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 		joints = _joints;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Joint read(Json json, JsonValue jsonData, Class type) 
 	{
@@ -138,21 +135,19 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 			{
 				((MouseJoint) joint).setTarget(mouseJointDefSerializer.target);
 			}
-			
-			String name = json.readValue("name", String.class, jsonData);
-			
-			RubeCustomProperty customProperty = null;
-			if(json.getSerializer(RubeCustomProperty.class) != null)
-				customProperty = json.readValue("customProperties", RubeCustomProperty.class, jsonData);
-			
-			scene.onAddJoint(joint, name, customProperty);
 		}
-		
+		scene.parseCustomProperties(json, joint, jsonData);
+		String name = json.readValue("name", String.class, jsonData);
+		if (name != null)
+		{
+		   scene.putNamed(name, joint);
+		}
 		return joint;
 	}
 	
 	public class RevoluteJointDefSerializer extends ReadOnlySerializer<RevoluteJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public RevoluteJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -182,6 +177,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class PrismaticJointDefSerializer extends ReadOnlySerializer<PrismaticJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public PrismaticJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -218,6 +214,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class DistanceJointDefSerializer extends ReadOnlySerializer<DistanceJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public DistanceJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -243,6 +240,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class PulleyJointDefSerializer extends ReadOnlySerializer<PulleyJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public PulleyJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -276,6 +274,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	{	
 		public Vector2 target;
 		
+		@SuppressWarnings("rawtypes")
 		@Override
 		public MouseJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -302,6 +301,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class WeldJointDefSerializer extends ReadOnlySerializer<WeldJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public WeldJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -325,6 +325,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class FrictionJointDefSerializer extends ReadOnlySerializer<FrictionJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public FrictionJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -349,6 +350,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class WheelJointDefSerializer extends ReadOnlySerializer<WheelJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public WheelJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -379,6 +381,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class RopeJointDefSerializer extends ReadOnlySerializer<RopeJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public RopeJointDef read(Json json, JsonValue jsonData, Class type)
 		{	
@@ -402,6 +405,7 @@ class RubeJointSerializer extends RubeSerializer<Joint>
 	
 	public class GearJointDefSerializer extends ReadOnlySerializer<GearJointDef>
 	{	
+		@SuppressWarnings("rawtypes")
 		@Override
 		public GearJointDef read(Json json, JsonValue jsonData, Class type)
 		{	

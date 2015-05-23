@@ -8,19 +8,24 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.rube.RubeScene;
-import com.badlogic.gdx.rube.reader.RubeSceneReader;
+import com.gushikustudios.rube.RubeScene;
+import com.gushikustudios.rube.loader.RubeSceneLoader;
 
 public class GameScreen extends ScreenAdapter {
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
+
 	private Box2DDebugRenderer debugRenderer;
-	// Reader to load a scene from a file
-	private RubeSceneReader reader;
+	float accumulator;
+	float secondsPerStep = 1f / 60f;
+	int velocityIter = 8;
+	int positionIter = 3;;
+
 	// Your scene
-	private RubeScene scene;
+	private RubeScene scene;	
 	private String sceneFileName;
+	private Player player;
 
 	Vector3 touchPoint;
 
@@ -32,38 +37,58 @@ public class GameScreen extends ScreenAdapter {
 		gl = Gdx.gl;
 		gl.glClearColor(1, 0, 0, 1);
 		spriteBatch = new SpriteBatch();
+		touchPoint = new Vector3();
+		
 		debugRenderer = new Box2DDebugRenderer();
 
 		// FIXME
 		img = new Texture("badlogic.jpg");
 
-		reader = new RubeSceneReader();
+		RubeSceneLoader loader = new RubeSceneLoader();
 		// 2. Read your scene
 		sceneFileName = "rube/floor.json";
-		scene = reader.readScene(Gdx.files.internal(sceneFileName));
-		touchPoint = new Vector3();
+		scene = loader.loadScene(Gdx.files.internal(sceneFileName));
+		
+
+		player = new Player(100f, 100f, scene.getWorld());
 	}
 
 	@Override
 	public void dispose() {
-		scene.world.dispose();
 		scene.clear();
 		debugRenderer.dispose();
 		spriteBatch.dispose();
+		player.dispose();
 	}
 
-	public void update() {
+	public void update(float delta) {
 		if (Gdx.input.justTouched()) {
 			camera.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(),
 					0));
 			Gdx.app.debug("GameScreen", "Tap Coords: x:" + touchPoint.x + " y:"
 					+ touchPoint.y);
 		}
-		scene.world.step(1.0f / scene.stepsPerSecond, scene.velocityIterations,
-				scene.positionIterations);
+		/*
+		 * scene.world.step(1.0f / scene.stepsPerSecond,
+		 * scene.velocityIterations, scene.positionIterations);
+		 */
+		accumulator += delta;
+		while (accumulator >= secondsPerStep) {
+			scene.getWorld()
+					.step(secondsPerStep, velocityIter, positionIter);
+			accumulator -= secondsPerStep;
+		}
+
+		player.update();
 		camera.position.set(5f, 5f, 0);
 		camera.update();
 	}
+
+	/*
+	 * private void updatePhysics(float delta) {
+	 * 
+	 * }
+	 */
 
 	public void draw() {
 
@@ -73,9 +98,10 @@ public class GameScreen extends ScreenAdapter {
 		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
 		spriteBatch.draw(img, 2f * StuntNugget.PPM, 2f * StuntNugget.PPM);
+		player.draw(spriteBatch);
 		spriteBatch.end();
 
-		debugRenderer.render(scene.world, camera.combined);
+		debugRenderer.render(scene.getWorld(), camera.combined);
 
 		// game.batcher.setProjectionMatrix(guiCam.combined);
 		//
@@ -96,7 +122,7 @@ public class GameScreen extends ScreenAdapter {
 
 	@Override
 	public void render(float delta) {
-		update();
+		update(delta);
 		draw();
 	}
 }
