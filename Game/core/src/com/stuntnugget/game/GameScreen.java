@@ -12,6 +12,8 @@ import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
 
 public class GameScreen extends ScreenAdapter {
+	
+	
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
@@ -20,7 +22,7 @@ public class GameScreen extends ScreenAdapter {
 	float accumulator;
 	float secondsPerStep = 1f / 60f;
 	int velocityIter = 8;
-	int positionIter = 3;;
+	int positionIter = 3;
 
 	// Your scene
 	private RubeScene scene;	
@@ -50,7 +52,7 @@ public class GameScreen extends ScreenAdapter {
 		scene = loader.loadScene(Gdx.files.internal(sceneFileName));
 		
 
-		player = new Player(100f, 100f, scene.getWorld());
+		player = new Player(5f, 10f, scene.getWorld());
 	}
 
 	@Override
@@ -68,10 +70,6 @@ public class GameScreen extends ScreenAdapter {
 			Gdx.app.debug("GameScreen", "Tap Coords: x:" + touchPoint.x + " y:"
 					+ touchPoint.y);
 		}
-		/*
-		 * scene.world.step(1.0f / scene.stepsPerSecond,
-		 * scene.velocityIterations, scene.positionIterations);
-		 */
 		accumulator += delta;
 		while (accumulator >= secondsPerStep) {
 			scene.getWorld()
@@ -84,14 +82,7 @@ public class GameScreen extends ScreenAdapter {
 		camera.update();
 	}
 
-	/*
-	 * private void updatePhysics(float delta) {
-	 * 
-	 * }
-	 */
-
 	public void draw() {
-
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		Matrix4 scaledMat = new Matrix4(camera.combined);
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
