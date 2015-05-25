@@ -1,0 +1,18 @@
+Chicken.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 2
+  size: 508, 463
+  orig: 508, 463
+  offset: 0, 0
+  index: -1
+wingUpperFront
+  rotate: false
+  xy: 512, 2
+  size: 228, 285
+  orig: 228, 285
+  offset: 0, 0
+  index: -1
