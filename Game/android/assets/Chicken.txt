@@ -9,9 +9,121 @@ body
   orig: 508, 463
   offset: 0, 0
   index: -1
-wingUpperFront
+eyeBack
+  rotate: false
+  xy: 971, 383
+  size: 29, 33
+  orig: 29, 33
+  offset: 0, 0
+  index: -1
+eyeFront
+  rotate: false
+  xy: 971, 326
+  size: 46, 55
+  orig: 46, 55
+  offset: 0, 0
+  index: -1
+footBack
+  rotate: false
+  xy: 728, 599
+  size: 231, 39
+  orig: 231, 39
+  offset: 0, 0
+  index: -1
+footFront
+  rotate: false
+  xy: 504, 704
+  size: 231, 39
+  orig: 231, 39
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 504, 506
+  size: 222, 196
+  orig: 222, 196
+  offset: 0, 0
+  index: -1
+jaw
+  rotate: false
+  xy: 728, 506
+  size: 118, 91
+  orig: 118, 91
+  offset: 0, 0
+  index: -1
+lowerLegBack
+  rotate: false
+  xy: 971, 164
+  size: 38, 160
+  orig: 38, 160
+  offset: 0, 0
+  index: -1
+lowerLegFront
+  rotate: false
+  xy: 971, 2
+  size: 38, 160
+  orig: 38, 160
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 2, 736
+  size: 243, 268
+  orig: 243, 268
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 2, 467
+  size: 270, 267
+  orig: 270, 267
+  offset: 0, 0
+  index: -1
+upperLegBack
+  rotate: false
+  xy: 439, 754
+  size: 190, 237
+  orig: 190, 237
+  offset: 0, 0
+  index: -1
+upperLegFront
+  rotate: false
+  xy: 247, 754
+  size: 190, 237
+  orig: 190, 237
+  offset: 0, 0
+  index: -1
+wattle
+  rotate: false
+  xy: 631, 745
+  size: 80, 127
+  orig: 80, 127
+  offset: 0, 0
+  index: -1
+wingLowerBack
+  rotate: false
+  xy: 512, 254
+  size: 457, 250
+  orig: 457, 250
+  offset: 0, 0
+  index: -1
+wingLowerFront
   rotate: false
   xy: 512, 2
+  size: 457, 250
+  orig: 457, 250
+  offset: 0, 0
+  index: -1
+wingUpperBack
+  rotate: false
+  xy: 737, 640
+  size: 222, 285
+  orig: 222, 285
+  offset: 0, 0
+  index: -1
+wingUpperFront
+  rotate: false
+  xy: 274, 467
   size: 228, 285
   orig: 228, 285
   offset: 0, 0

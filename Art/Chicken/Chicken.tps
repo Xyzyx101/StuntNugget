@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>Chicken.png</filename>
+        <filename>../../Game/android/assets/Chicken.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -84,7 +84,7 @@
             <int>-1</int>
         </QSize>
         <key>reduceBorderArtifacts</key>
-        <false/>
+        <true/>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
@@ -92,7 +92,7 @@
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
-            <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
+            <enum type="AlgorithmSettings::SizeConstraints">POT</enum>
             <key>forceSquared</key>
             <false/>
             <key>forceWordAligned</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>Chicken.txt</filename>
+                <filename>../../Game/android/assets/Chicken.txt</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,6 +173,22 @@
         <key>fileList</key>
         <array>
             <filename>../../../../../Dropbox/chicken/Spitesheet/body.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/eyeBack.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/eyeFront.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/footBack.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/footFront.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/head.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/jaw.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/lowerLegBack.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/lowerLegFront.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/neck.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/tail.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/upperLegBack.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/upperLegFront.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/wattle.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/wingLowerBack.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/wingLowerFront.png</filename>
+            <filename>../../../../../Dropbox/chicken/Spitesheet/wingUpperBack.png</filename>
             <filename>../../../../../Dropbox/chicken/Spitesheet/wingUpperFront.png</filename>
         </array>
         <key>ignoreFileList</key>

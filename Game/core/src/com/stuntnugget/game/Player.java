@@ -93,8 +93,6 @@ public class Player {
 
 	public void update() {
 		// TODO Auto-generated method stub
-		Vector2 pos = body.getTransform().getPosition();
-		Gdx.app.log("Player", "x:" + pos.x + " y:" + pos.y);
 	}
 
 	public void draw(SpriteBatch spriteBatch) {
