@@ -15,7 +15,7 @@ public class UIButton {
 				, yPos * StuntNugget.MPP
 				, width * StuntNugget.MPP
 				, height * StuntNugget.MPP);
-		TextureAtlas atlas = new TextureAtlas("Buttons.txt");
+		TextureAtlas atlas = new TextureAtlas("buttons.txt");
 		region = atlas.findRegion(spriteName);
 	}
 	

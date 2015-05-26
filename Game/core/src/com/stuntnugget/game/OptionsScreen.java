@@ -24,7 +24,7 @@ public class OptionsScreen extends UIScreen {
 				buttonHeight);
 		uiButtons[2] = new UIButton("SFX", centerX, 315f, buttonWidth,
 				buttonHeight);
-		TextureAtlas atlas = new TextureAtlas("Buttons.txt");
+		TextureAtlas atlas = new TextureAtlas("buttons.txt");
 		noRegion = atlas.findRegion("No");
 	}
 
