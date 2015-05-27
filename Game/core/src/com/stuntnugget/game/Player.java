@@ -19,9 +19,11 @@ public class Player {
 	World world;
 	Body primaryBody;
 	Array<BodyImage> bodyImages;
+	Vector2 maxPower;
 
 	public Player(float x, float y, World world) {
 		this.world = world;
+		maxPower = new Vector2(100f, 0f);
 		RubeSceneLoader loader = new RubeSceneLoader(world);
 		RubeScene scene = loader.loadScene(Gdx.files
 				.internal("rube/chicken.json"));
@@ -64,30 +66,35 @@ public class Player {
 			}
 		}
 		Array<Body> bodies = scene.getBodies();
-		for(int i =0; i< bodies.size; ++i) {
+		for (int i = 0; i < bodies.size; ++i) {
 			Body thisBody = bodies.get(i);
-			String bodyType = (String) scene.getCustom(thisBody, "bodyType", "ignore");
-			if(bodyType.equals("main")) {
+			String bodyType = (String) scene.getCustom(thisBody, "bodyType",
+					"ignore");
+			if (bodyType.equals("main")) {
 				primaryBody = thisBody;
 			}
-			
+
 		}
 	}
 
 	private void initImages(RubeScene scene) {
-		TextureAtlas atlas = new TextureAtlas((String) scene.getCustom(world, "atlas"));
+		TextureAtlas atlas = new TextureAtlas((String) scene.getCustom(world,
+				"atlas"));
 		Array<RubeImage> images = scene.getImages();
-		
+
 		if ((images != null) && (images.size > 0)) {
 			bodyImages = new Array<BodyImage>();
 			for (int i = 0; i < images.size; ++i) {
 				RubeImage image = images.get(i);
 				TextureRegion region = atlas.findRegion(image.name);
-				BodyImage bodyImage = new BodyImage(region, image.body, image.center, image.width, image.height, image.scale);
-				//BodyImage bodyImage = new BodyImage(region, image.body, image.center, region.getRegionWidth(), region.getRegionHeight());
-				
+				BodyImage bodyImage = new BodyImage(region, image.body,
+						image.center, image.width, image.height, image.scale);
+				// BodyImage bodyImage = new BodyImage(region, image.body,
+				// image.center, region.getRegionWidth(),
+				// region.getRegionHeight());
+
 				bodyImages.add(bodyImage);
-			}			
+			}
 		}
 	}
 
@@ -101,16 +108,18 @@ public class Player {
 	}
 
 	public void draw(SpriteBatch spriteBatch) {
-		for(int i = 0; i < bodyImages.size; ++i) {
+		for (int i = 0; i < bodyImages.size; ++i) {
 			bodyImages.get(i).draw(spriteBatch);
 		}
 	}
-	
+
 	public Vector2 getPosition() {
 		return primaryBody.getPosition();
 	}
 
 	public void fire(float power, float angle) {
-		Gdx.app.log("Player", "Fire()");
+		Gdx.app.log("Player", "fire(" + power + "," + angle + ")");
+		Vector2 powerVector = maxPower.cpy().scl(power).rotate(angle);
+		primaryBody.applyLinearImpulse(powerVector, primaryBody.getPosition(), true);
 	}
 }

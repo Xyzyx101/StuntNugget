@@ -58,9 +58,9 @@ public class Controller {
 				goingUp = true;
 			}
 		}
-		float value = interpolation.apply(markTimer / markTime);
+		power = interpolation.apply(markTimer / markTime);
 
-		markerOffset = markerStart.cpy().lerp(markerEnd, value);
+		markerOffset = markerStart.cpy().lerp(markerEnd, power);
 		Gdx.app.log("Controller", "" + markerOffset);
 	}
 
