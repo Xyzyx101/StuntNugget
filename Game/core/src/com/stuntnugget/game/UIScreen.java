@@ -3,6 +3,7 @@ package com.stuntnugget.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 
@@ -12,6 +13,7 @@ public abstract class UIScreen extends ScreenAdapter {
 	GL20 gl;
 	SpriteBatch guiBatch;
 	Vector3 touchPoint;
+	Texture uiBackground;
 	
 	public UIScreen(StuntNugget game) {
 		this.game = game;
@@ -20,7 +22,7 @@ public abstract class UIScreen extends ScreenAdapter {
 		this.guiBatch = game.guiBatch;
 		gl = Gdx.gl;
 		gl.glClearColor(0, 0, 0, 1);
-
+		uiBackground =  new Texture(Gdx.files.internal("background.png"));
 		touchPoint = new Vector3();
 	}
 

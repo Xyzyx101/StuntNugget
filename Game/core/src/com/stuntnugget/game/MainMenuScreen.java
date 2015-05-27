@@ -55,6 +55,7 @@ public class MainMenuScreen extends UIScreen {
 		guiBatch.setProjectionMatrix(scaledMat);
 		guiBatch.setProjectionMatrix(camera.combined);
 		guiBatch.begin();
+		guiBatch.draw(uiBackground, 0f, 0f, 10f, 10f);
 		for (int i = 0; i < uiButtons.length; ++i) {
 			uiButtons[i].draw(guiBatch);
 		}
