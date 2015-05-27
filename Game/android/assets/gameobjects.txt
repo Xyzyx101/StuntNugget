@@ -1,0 +1,25 @@
+gameobjects.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Marker
+  rotate: false
+  xy: 2, 2
+  size: 223, 429
+  orig: 223, 429
+  offset: 0, 0
+  index: -1
+Pointer
+  rotate: false
+  xy: 227, 2
+  size: 1029, 356
+  orig: 1029, 356
+  offset: 0, 0
+  index: -1
+Star
+  rotate: false
+  xy: 1258, 2
+  size: 188, 188
+  orig: 200, 200
+  offset: 6, 6
+  index: -1

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Filter;
@@ -19,10 +20,16 @@ public class GameScreen extends ScreenAdapter {
 	public static short GROUND_LAYER = 0x0001;
 	public static short PLAYER_BODY_LAYER = 0x0010;
 	public static short PLAYER_COSMETICS = 0x0100;
-		
+
+	private enum State {
+		Start, Control, Shoot
+	}
+
+	private State state = State.Start;
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
+	private Controller controller;
 
 	private Box2DDebugRenderer debugRenderer;
 	float accumulator;
@@ -31,7 +38,7 @@ public class GameScreen extends ScreenAdapter {
 	int positionIter = 3;
 
 	// Your scene
-	private RubeScene scene;	
+	private RubeScene scene;
 	private String sceneFileName;
 	private Player player;
 
@@ -46,7 +53,7 @@ public class GameScreen extends ScreenAdapter {
 		gl.glClearColor(1, 0, 0, 1);
 		spriteBatch = new SpriteBatch();
 		touchPoint = new Vector3();
-		
+
 		debugRenderer = new Box2DDebugRenderer();
 
 		// FIXME
@@ -60,10 +67,12 @@ public class GameScreen extends ScreenAdapter {
 		filter.categoryBits = GROUND_LAYER;
 		filter.maskBits = PLAYER_BODY_LAYER;
 		Array<Fixture> fixtures = scene.getFixtures();
-		for(int i = 0; i < fixtures.size; ++i) {
+		for (int i = 0; i < fixtures.size; ++i) {
 			fixtures.get(i).setFilterData(filter);
 		}
-		player = new Player(5f, 12f, scene.getWorld());
+		player = new Player(5f, 2f, scene.getWorld());
+		Vector2 playerPosition = player.getPosition();
+		controller = new Controller(playerPosition);
 	}
 
 	@Override
@@ -74,17 +83,33 @@ public class GameScreen extends ScreenAdapter {
 		player.dispose();
 	}
 
-	public void update(float delta) {
-		if (Gdx.input.justTouched()) {
-			camera.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(),
-					0));
-			Gdx.app.debug("GameScreen", "Tap Coords: x:" + touchPoint.x + " y:"
-					+ touchPoint.y);
+	public void update(float dt) {
+		switch (state) {
+		case Start:
+			if (Gdx.input.justTouched()) {
+				state = State.Control;
+			}
+			break;
+		case Control:
+			controller.update(dt);
+			if (Gdx.input.isTouched(0)) {
+				camera.unproject(touchPoint.set(Gdx.input.getX(),
+						Gdx.input.getY(), 0));
+				controller.setTouchPoint(touchPoint.x, touchPoint.y);
+			} else {
+				controller.fire();
+				player.fire(controller.getPower(), controller.getAngle());
+				state = State.Shoot;
+			}
+			break;
+		case Shoot:
+
+			break;
 		}
-		accumulator += delta;
+
+		accumulator += dt;
 		while (accumulator >= secondsPerStep) {
-			scene.getWorld()
-					.step(secondsPerStep, velocityIter, positionIter);
+			scene.getWorld().step(secondsPerStep, velocityIter, positionIter);
 			accumulator -= secondsPerStep;
 		}
 
@@ -100,26 +125,13 @@ public class GameScreen extends ScreenAdapter {
 		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
 		spriteBatch.draw(img, 2f * StuntNugget.PPM, 2f * StuntNugget.PPM);
+		if (state != State.Shoot) {
+			controller.draw(spriteBatch);
+		}
 		player.draw(spriteBatch);
 		spriteBatch.end();
 
 		debugRenderer.render(scene.getWorld(), camera.combined);
-
-		// game.batcher.setProjectionMatrix(guiCam.combined);
-		//
-		// game.batcher.disableBlending();
-		// game.batcher.begin();
-		// game.batcher.draw(Assets.backgroundRegion, 0, 0, 320, 480);
-		// game.batcher.end();
-		//
-		// game.batcher.enableBlending();
-		// game.batcher.begin();
-		// game.batcher.draw(Assets.logo, 160 - 274 / 2, 480 - 10 - 142, 274,
-		// 142);
-		// game.batcher.draw(Assets.mainMenu, 10, 200 - 110 / 2, 300, 110);
-		// game.batcher.draw(Settings.soundEnabled ? Assets.soundOn :
-		// Assets.soundOff, 0, 0, 64, 64);
-		// game.batcher.end();
 	}
 
 	@Override

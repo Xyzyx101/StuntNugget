@@ -42,13 +42,6 @@
   [
     
     {
-      "class" : "image",
-      "displayName" : "drawOrder",
-      "name" : "drawOrder",
-      "type" : "int"
-    },
-    
-    {
       "class" : "fixture",
       "comboboxEntries" : 
       [
@@ -70,6 +63,27 @@
       "class" : "world",
       "displayName" : "atlas",
       "name" : "atlas",
+      "type" : "string"
+    },
+    
+    {
+      "class" : "image",
+      "displayName" : "drawOrder",
+      "name" : "drawOrder",
+      "type" : "int"
+    },
+    
+    {
+      "class" : "body",
+      "comboboxEntries" : 
+      [
+        
+        {
+          "entry" : "main"
+        }
+      ],
+      "displayName" : "bodyType",
+      "name" : "bodyType",
       "type" : "string"
     }
   ],
@@ -110,6 +124,14 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "bodyType",
+            "string" : "main"
+          }
+        ],
         "fixture" : 
         [
           
@@ -1256,7 +1278,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/body.png",
+        "file" : "../Art/Chicken/Sprites/body.png",
         "filter" : 1,
         "flip" : false,
         "id" : 1,
@@ -1282,7 +1304,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/wingUpperBack.png",
+        "file" : "../Art/Chicken/Sprites/wingUpperBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 3,
@@ -1304,7 +1326,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/wingLowerFront.png",
+        "file" : "../Art/Chicken/Sprites/wingLowerFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 4,
@@ -1326,7 +1348,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/wattle.png",
+        "file" : "../Art/Chicken/Sprites/wattle.png",
         "filter" : 1,
         "flip" : false,
         "id" : 6,
@@ -1352,7 +1374,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/upperLegFront.png",
+        "file" : "../Art/Chicken/Sprites/upperLegFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 7,
@@ -1374,7 +1396,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/tail.png",
+        "file" : "../Art/Chicken/Sprites/tail.png",
         "filter" : 1,
         "flip" : false,
         "id" : 9,
@@ -1396,7 +1418,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/neck.png",
+        "file" : "../Art/Chicken/Sprites/neck.png",
         "filter" : 1,
         "flip" : false,
         "id" : 10,
@@ -1422,7 +1444,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/lowerLegFront.png",
+        "file" : "../Art/Chicken/Sprites/lowerLegFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 11,
@@ -1448,7 +1470,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/jaw.png",
+        "file" : "../Art/Chicken/Sprites/jaw.png",
         "filter" : 1,
         "flip" : false,
         "id" : 13,
@@ -1474,7 +1496,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/head.png",
+        "file" : "../Art/Chicken/Sprites/head.png",
         "filter" : 1,
         "flip" : false,
         "id" : 14,
@@ -1489,8 +1511,8 @@
         "body" : 9,
         "center" : 
         {
-          "x" : -4.023313522338867e-007,
-          "y" : 4.768371582031250e-007
+          "x" : -0.003630585968494415,
+          "y" : 0.01887738704681397
         },
         "customProperties" : 
         [
@@ -1500,7 +1522,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/footFront.png",
+        "file" : "../Art/Chicken/Sprites/footFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 15,
@@ -1526,7 +1548,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/eyeFront.png",
+        "file" : "../Art/Chicken/Sprites/eyeFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 17,
@@ -1548,7 +1570,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/eyeBack.png",
+        "file" : "../Art/Chicken/Sprites/eyeBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 18,
@@ -1574,7 +1596,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/wingUpperFront.png",
+        "file" : "../Art/Chicken/Sprites/wingUpperFront.png",
         "filter" : 1,
         "flip" : false,
         "id" : 19,
@@ -1596,7 +1618,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/wingLowerBack.png",
+        "file" : "../Art/Chicken/Sprites/wingLowerBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 20,
@@ -1622,7 +1644,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/lowerLegBack.png",
+        "file" : "../Art/Chicken/Sprites/lowerLegBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 21,
@@ -1637,8 +1659,8 @@
         "body" : 12,
         "center" : 
         {
-          "x" : -4.023313522338867e-007,
-          "y" : 4.768371582031250e-007
+          "x" : -0.006534725427627564,
+          "y" : 0.02178156375885010
         },
         "customProperties" : 
         [
@@ -1648,7 +1670,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/footBack.png",
+        "file" : "../Art/Chicken/Sprites/footBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 22,
@@ -1674,7 +1696,7 @@
             "name" : "drawOrder"
           }
         ],
-        "file" : "../../../../Dropbox/chicken/Spitesheet/upperLegBack.png",
+        "file" : "../Art/Chicken/Sprites/upperLegBack.png",
         "filter" : 1,
         "flip" : false,
         "id" : 23,
@@ -1832,7 +1854,7 @@
         "bodyB" : 9,
         "collideConnected" : false,
         "dampingRatio" : 0.15,
-        "frequency" : 3,
+        "frequency" : 1,
         "id" : 12,
         "name" : "joint5",
         "referenceAngle" : 0,
@@ -1880,7 +1902,7 @@
         "bodyB" : 12,
         "collideConnected" : false,
         "dampingRatio" : 0.15,
-        "frequency" : 3,
+        "frequency" : 1,
         "id" : 14,
         "name" : "joint5",
         "referenceAngle" : 0,
@@ -1954,7 +1976,7 @@
         "bodyB" : 13,
         "collideConnected" : false,
         "dampingRatio" : 0,
-        "frequency" : 4,
+        "frequency" : 1,
         "id" : 17,
         "name" : "joint7",
         "referenceAngle" : 0,
@@ -1976,7 +1998,7 @@
         "bodyB" : 1,
         "collideConnected" : false,
         "dampingRatio" : 0,
-        "frequency" : 7,
+        "frequency" : 1,
         "id" : 23,
         "name" : "joint8",
         "referenceAngle" : 0,
@@ -2020,7 +2042,7 @@
         "bodyB" : 16,
         "collideConnected" : false,
         "dampingRatio" : 0.1,
-        "frequency" : 6,
+        "frequency" : 1,
         "id" : 25,
         "name" : "joint10",
         "referenceAngle" : 0,
@@ -2094,7 +2116,7 @@
         "bodyB" : 16,
         "collideConnected" : false,
         "dampingRatio" : 0,
-        "frequency" : 4,
+        "frequency" : 1,
         "id" : 30,
         "name" : "joint11",
         "referenceAngle" : 0,

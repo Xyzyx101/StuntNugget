@@ -1,6 +1,5 @@
 package com.stuntnugget.game;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -30,8 +29,6 @@ public class BodyImage {
 	public void draw(SpriteBatch batch) {
 		if (body != null) {
 			float angle = body.getAngle() * MathUtils.radiansToDegrees;
-			Vector2 pos = body.getPosition();
-			Gdx.app.log("BodyImage", "bodyX:" + pos.x + " bodyY:" + pos.y);
 			tmp.set(center).rotate(angle).add(body.getPosition()).sub(halfSize);
 			batch.draw(region, tmp.x * StuntNugget.PPM,
 					tmp.y * StuntNugget.PPM, halfSize.x * StuntNugget.PPM,

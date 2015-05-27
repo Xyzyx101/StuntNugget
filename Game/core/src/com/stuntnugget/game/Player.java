@@ -17,9 +17,7 @@ import com.gushikustudios.rube.loader.serializers.utils.RubeImage;
 public class Player {
 	final String rubefile = "rube/chicken.json";
 	World world;
-	float xPos;
-	float yPos;
-	Body body;
+	Body primaryBody;
 	Array<BodyImage> bodyImages;
 
 	public Player(float x, float y, World world) {
@@ -30,8 +28,6 @@ public class Player {
 		initFilters(scene);
 		initTransform(scene, x, y, world);
 		initImages(scene);
-		body = scene.getBodies().get(0);
-		body.setTransform(x, y, 0f);
 
 		scene.clear();
 	}
@@ -67,6 +63,15 @@ public class Player {
 				fixtures.get(i).setFilterData(cosmeticFilter);
 			}
 		}
+		Array<Body> bodies = scene.getBodies();
+		for(int i =0; i< bodies.size; ++i) {
+			Body thisBody = bodies.get(i);
+			String bodyType = (String) scene.getCustom(thisBody, "bodyType", "ignore");
+			if(bodyType.equals("main")) {
+				primaryBody = thisBody;
+			}
+			
+		}
 	}
 
 	private void initImages(RubeScene scene) {
@@ -99,5 +104,13 @@ public class Player {
 		for(int i = 0; i < bodyImages.size; ++i) {
 			bodyImages.get(i).draw(spriteBatch);
 		}
+	}
+	
+	public Vector2 getPosition() {
+		return primaryBody.getPosition();
+	}
+
+	public void fire(float power, float angle) {
+		Gdx.app.log("Player", "Fire()");
 	}
 }

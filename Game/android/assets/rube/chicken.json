@@ -958,6 +958,14 @@
 			"angle" : 0,
 			"angularVelocity" : 0,
 			"awake" : true,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "bodyType",
+					"string" : "main"
+				}
+			],
 			"fixture" : 
 			[
 				
@@ -1087,7 +1095,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/tail.png",
+			"file" : "../../../../Art/Chicken/Sprites/tail.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1137,7 +1145,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/wingLowerBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/wingLowerBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1191,7 +1199,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/wingUpperBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/wingUpperBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1217,24 +1225,24 @@
 			"body" : 7,
 			"center" : 
 			{
-				"x" : -4.023313522338867e-007,
-				"y" : 4.768371582031250e-007
+				"x" : -0.006534725427627564,
+				"y" : 0.02178156375885010
 			},
 			"corners" : 
 			{
 				"x" : 
 				[
-					-0.2452977448701859,
-					0.2452969402074814,
-					0.2452969402074814,
-					-0.2452977448701859
+					-0.2518320679664612,
+					0.2387626171112061,
+					0.2387626171112061,
+					-0.2518320679664612
 				],
 				"y" : 
 				[
-					-0.04141335934400559,
-					-0.04141335934400559,
-					0.04141431301832199,
-					0.04141431301832199
+					-0.01963227242231369,
+					-0.01963227242231369,
+					0.06319539994001389,
+					0.06319539994001389
 				]
 			},
 			"customProperties" : 
@@ -1245,20 +1253,20 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/footBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/footBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
 			"glVertexPointer" : 
 			[
-				-0.2452977448701859,
-				-0.04141335934400559,
-				0.2452969402074814,
-				-0.04141335934400559,
-				0.2452969402074814,
-				0.04141431301832199,
-				-0.2452977448701859,
-				0.04141431301832199
+				-0.2518320679664612,
+				-0.01963227242231369,
+				0.2387626171112061,
+				-0.01963227242231369,
+				0.2387626171112061,
+				0.06319539994001389,
+				-0.2518320679664612,
+				0.06319539994001389
 			],
 			"name" : "footBack",
 			"opacity" : 1,
@@ -1299,7 +1307,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/lowerLegBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/lowerLegBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1353,7 +1361,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/upperLegBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/upperLegBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1407,7 +1415,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/body.png",
+			"file" : "../../../../Art/Chicken/Sprites/body.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1457,7 +1465,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/neck.png",
+			"file" : "../../../../Art/Chicken/Sprites/neck.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1507,7 +1515,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/wattle.png",
+			"file" : "../../../../Art/Chicken/Sprites/wattle.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1561,7 +1569,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/jaw.png",
+			"file" : "../../../../Art/Chicken/Sprites/jaw.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1615,7 +1623,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/head.png",
+			"file" : "../../../../Art/Chicken/Sprites/head.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1665,7 +1673,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/eyeBack.png",
+			"file" : "../../../../Art/Chicken/Sprites/eyeBack.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1719,7 +1727,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/eyeFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/eyeFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1745,24 +1753,24 @@
 			"body" : 10,
 			"center" : 
 			{
-				"x" : -4.023313522338867e-007,
-				"y" : 4.768371582031250e-007
+				"x" : -0.003630585968494415,
+				"y" : 0.01887738704681397
 			},
 			"corners" : 
 			{
 				"x" : 
 				[
-					-0.2452977448701859,
-					0.2452969402074814,
-					0.2452969402074814,
-					-0.2452977448701859
+					-0.2489279359579086,
+					0.2416667640209198,
+					0.2416667640209198,
+					-0.2489279359579086
 				],
 				"y" : 
 				[
-					-0.04141335934400559,
-					-0.04141335934400559,
-					0.04141431301832199,
-					0.04141431301832199
+					-0.02253644913434982,
+					-0.02253644913434982,
+					0.06029122322797775,
+					0.06029122322797775
 				]
 			},
 			"customProperties" : 
@@ -1773,20 +1781,20 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/footFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/footFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
 			"glVertexPointer" : 
 			[
-				-0.2452977448701859,
-				-0.04141335934400559,
-				0.2452969402074814,
-				-0.04141335934400559,
-				0.2452969402074814,
-				0.04141431301832199,
-				-0.2452977448701859,
-				0.04141431301832199
+				-0.2489279359579086,
+				-0.02253644913434982,
+				0.2416667640209198,
+				-0.02253644913434982,
+				0.2416667640209198,
+				0.06029122322797775,
+				-0.2489279359579086,
+				0.06029122322797775
 			],
 			"name" : "footFront",
 			"opacity" : 1,
@@ -1827,7 +1835,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/lowerLegFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/lowerLegFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1881,7 +1889,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/upperLegFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/upperLegFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1931,7 +1939,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/wingLowerFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/wingLowerFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -1985,7 +1993,7 @@
 					"name" : "drawOrder"
 				}
 			],
-			"file" : "../../../../../../../Dropbox/chicken/Spitesheet/wingUpperFront.png",
+			"file" : "../../../../Art/Chicken/Sprites/wingUpperFront.png",
 			"filter" : 1,
 			"glDrawElements" : [ 0, 1, 2, 2, 3, 0 ],
 			"glTexCoordPointer" : [ 0.0, 0.0, 1, 0.0, 1, 1, 0.0, 1 ],
@@ -2012,6 +2020,26 @@
 		{
 			"anchorA" : 
 			{
+				"x" : -0.04285031557083130,
+				"y" : -0.1102910041809082
+			},
+			"anchorB" : 
+			{
+				"x" : -0.0886521041393280,
+				"y" : 0.04837465286254883
+			},
+			"bodyA" : 4,
+			"bodyB" : 3,
+			"dampingRatio" : 0.1,
+			"frequency" : 1,
+			"name" : "joint10",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
 				"x" : -0.006957650184631348,
 				"y" : 0.1243629455566406
 			},
@@ -2023,8 +2051,88 @@
 			"bodyA" : 2,
 			"bodyB" : 3,
 			"dampingRatio" : 0,
-			"frequency" : 4,
+			"frequency" : 1,
 			"name" : "joint11",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -0.002583339810371399,
+				"y" : -0.1602950096130371
+			},
+			"anchorB" : 
+			{
+				"x" : -0.02108129858970642,
+				"y" : 0.03554099798202515
+			},
+			"bodyA" : 11,
+			"bodyB" : 10,
+			"dampingRatio" : 0.15,
+			"frequency" : 1,
+			"name" : "joint5",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -0.002583339810371399,
+				"y" : -0.1602950096130371
+			},
+			"anchorB" : 
+			{
+				"x" : -0.02108129858970642,
+				"y" : 0.03554099798202515
+			},
+			"bodyA" : 8,
+			"bodyB" : 7,
+			"dampingRatio" : 0.15,
+			"frequency" : 1,
+			"name" : "joint5",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 0.002256572246551514,
+				"y" : -0.1395109891891480
+			},
+			"anchorB" : 
+			{
+				"x" : 0.3817180097103119,
+				"y" : 0.4830519556999207
+			},
+			"bodyA" : 5,
+			"bodyB" : 17,
+			"dampingRatio" : 0,
+			"frequency" : 1,
+			"name" : "joint8",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -0.4596729874610901,
+				"y" : 0.1661120057106018
+			},
+			"anchorB" : 
+			{
+				"x" : 0.2546510100364685,
+				"y" : -0.2430249452590942
+			},
+			"bodyA" : 17,
+			"bodyB" : 6,
+			"dampingRatio" : 0,
+			"frequency" : 1,
+			"name" : "joint7",
 			"refAngle" : 0,
 			"type" : "weld"
 		},
@@ -2082,26 +2190,6 @@
 		{
 			"anchorA" : 
 			{
-				"x" : -0.04285031557083130,
-				"y" : -0.1102910041809082
-			},
-			"anchorB" : 
-			{
-				"x" : -0.0886521041393280,
-				"y" : 0.04837465286254883
-			},
-			"bodyA" : 4,
-			"bodyB" : 3,
-			"dampingRatio" : 0.1,
-			"frequency" : 6,
-			"name" : "joint10",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
 				"x" : 0.1570280194282532,
 				"y" : 0.1736769676208496
 			},
@@ -2115,46 +2203,6 @@
 			"dampingRatio" : 0,
 			"frequency" : 7,
 			"name" : "joint9",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : 0.002256572246551514,
-				"y" : -0.1395109891891480
-			},
-			"anchorB" : 
-			{
-				"x" : 0.3817180097103119,
-				"y" : 0.4830519556999207
-			},
-			"bodyA" : 5,
-			"bodyB" : 17,
-			"dampingRatio" : 0,
-			"frequency" : 7,
-			"name" : "joint8",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : -0.4596729874610901,
-				"y" : 0.1661120057106018
-			},
-			"anchorB" : 
-			{
-				"x" : 0.2546510100364685,
-				"y" : -0.2430249452590942
-			},
-			"bodyA" : 17,
-			"bodyB" : 6,
-			"dampingRatio" : 0,
-			"frequency" : 4,
-			"name" : "joint7",
 			"refAngle" : 0,
 			"type" : "weld"
 		},
@@ -2212,26 +2260,6 @@
 		{
 			"anchorA" : 
 			{
-				"x" : -0.002583339810371399,
-				"y" : -0.1602950096130371
-			},
-			"anchorB" : 
-			{
-				"x" : -0.02108129858970642,
-				"y" : 0.03554099798202515
-			},
-			"bodyA" : 8,
-			"bodyB" : 7,
-			"dampingRatio" : 0.15,
-			"frequency" : 3,
-			"name" : "joint5",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
 				"x" : 0.0004576444625854492,
 				"y" : 0.08499711751937866
 			},
@@ -2252,26 +2280,6 @@
 			"refAngle" : 0,
 			"type" : "revolute",
 			"upperLimit" : 1.047197580337524
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : -0.002583339810371399,
-				"y" : -0.1602950096130371
-			},
-			"anchorB" : 
-			{
-				"x" : -0.02108129858970642,
-				"y" : 0.03554099798202515
-			},
-			"bodyA" : 11,
-			"bodyB" : 10,
-			"dampingRatio" : 0.15,
-			"frequency" : 3,
-			"name" : "joint5",
-			"refAngle" : 0,
-			"type" : "weld"
 		},
 		
 		{
