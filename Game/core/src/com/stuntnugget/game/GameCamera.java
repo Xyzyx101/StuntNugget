@@ -1,6 +1,9 @@
 package com.stuntnugget.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameCamera extends OrthographicCamera {
@@ -11,5 +14,9 @@ public class GameCamera extends OrthographicCamera {
 		viewportHeight = StuntNugget.SCREEN_HEIGHT;
 		new FitViewport(StuntNugget.SCREEN_WIDTH, StuntNugget.SCREEN_HEIGHT, this);
 		update();
+	}
+	
+	public void setPosition(Vector2 newPosition) {
+		position.set(newPosition.x, newPosition.y, 0);
 	}
 }

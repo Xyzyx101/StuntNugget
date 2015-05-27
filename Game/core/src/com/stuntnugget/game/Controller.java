@@ -40,9 +40,9 @@ public class Controller {
 		markerEnd = new Vector2(size.x * 0.75f, size.y * 0.5f);
 		markTime = 1.2f;
 		markTimer = 0;
-		//interpolation = new Interpolation.PowIn(3);
+		// interpolation = new Interpolation.PowIn(3);
 		interpolation = new Interpolation.SwingIn(1);
-		
+
 		markerOffset = markerStart;
 	}
 
@@ -61,20 +61,19 @@ public class Controller {
 		power = interpolation.apply(markTimer / markTime);
 
 		markerOffset = markerStart.cpy().lerp(markerEnd, power);
-		Gdx.app.log("Controller", "" + markerOffset);
 	}
 
 	public void draw(SpriteBatch batch) {
 		Vector2 pointerPos = position.cpy().scl(StuntNugget.PPM).sub(origin);
-		
-		batch.draw(pointerRegion, pointerPos.x,
-				pointerPos.y, origin.x, origin.y,
-				size.x, size.y, 1f, 1f, angle);
-	
-		Vector2 tmp = new Vector2(-markerSize.x * 0.5f,-markerSize.y * 0.5f).add(markerOffset).rotate(angle).add(pointerPos);
-		batch.draw(markerRegion, tmp.x, tmp.y, markerSize.x * 0.5f, markerSize.y * 0.5f, markerSize.x, markerSize.y, 1f,
-				1f, angle);
-				
+
+		batch.draw(pointerRegion, pointerPos.x, pointerPos.y, origin.x,
+				origin.y, size.x, size.y, 1f, 1f, angle);
+
+		Vector2 tmp = new Vector2(-markerSize.x * 0.5f, -markerSize.y * 0.5f)
+				.add(markerOffset).rotate(angle).add(pointerPos);
+		batch.draw(markerRegion, tmp.x, tmp.y, markerSize.x * 0.5f,
+				markerSize.y * 0.5f, markerSize.x, markerSize.y, 1f, 1f, angle);
+
 	}
 
 	public void setTouchPoint(float xTouch, float yTouch) {

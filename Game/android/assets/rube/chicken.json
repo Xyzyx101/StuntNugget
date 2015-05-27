@@ -158,7 +158,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1,
+					"density" : 0.75,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture10",
@@ -185,13 +185,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 6.543191557284445e-005,
+			"massData-I" : 4.907393667963333e-005,
 			"massData-center" : 
 			{
 				"x" : -0.02298453636467457,
 				"y" : -0.009994308464229107
 			},
-			"massData-mass" : 0.01550362445414066,
+			"massData-mass" : 0.01162771880626679,
 			"name" : "jaw",
 			"position" : 
 			{
@@ -296,7 +296,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.3,
 					"name" : "fixture7",
@@ -323,13 +323,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.003304515033960342,
+			"massData-I" : 0.001982709160074592,
 			"massData-center" : 
 			{
 				"x" : 0.04122635722160339,
 				"y" : -0.02125518023967743
 			},
-			"massData-mass" : 0.1311433166265488,
+			"massData-mass" : 0.07868599146604538,
 			"name" : "neck",
 			"position" : 
 			{
@@ -414,7 +414,7 @@
 							"string" : "main"
 						}
 					],
-					"density" : 1.5,
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.7,
 					"name" : "fixture5",
@@ -442,13 +442,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.001162127242423594,
+			"massData-I" : 0.001549502951093018,
 			"massData-center" : 
 			{
 				"x" : -0.0008951290510594845,
 				"y" : 0.02399842441082001
 			},
-			"massData-mass" : 0.05739670991897583,
+			"massData-mass" : 0.07652894407510757,
 			"name" : "footBack",
 			"position" : 
 			{
@@ -474,7 +474,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1.5,
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture4",
@@ -501,13 +501,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.0003668836725410074,
+			"massData-I" : 0.0004891782300546765,
 			"massData-center" : 
 			{
 				"x" : -1.432364088449489e-010,
 				"y" : 1.615777928121176e-010
 			},
-			"massData-mass" : 0.03641719743609428,
+			"massData-mass" : 0.04855626448988915,
 			"name" : "legLowerBack",
 			"position" : 
 			{
@@ -538,15 +538,15 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture3"
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.003838524920865893,
-			"massData-mass" : 0.1553002297878265,
+			"massData-I" : 0.002303115092217922,
+			"massData-mass" : 0.09318014234304428,
 			"name" : "legUpperBack",
 			"position" : 
 			{
@@ -572,7 +572,7 @@
 							"string" : "main"
 						}
 					],
-					"density" : 1.5,
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.7,
 					"name" : "fixture5",
@@ -600,13 +600,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.001161520485766232,
+			"massData-I" : 0.001548693981021643,
 			"massData-center" : 
 			{
 				"x" : 0.0008968696929514408,
 				"y" : 0.02377708256244659
 			},
-			"massData-mass" : 0.05739670991897583,
+			"massData-mass" : 0.07652894407510757,
 			"name" : "footFront",
 			"position" : 
 			{
@@ -632,7 +632,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1.5,
+					"density" : 2,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture4",
@@ -659,13 +659,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.0003668836725410074,
+			"massData-I" : 0.0004891782300546765,
 			"massData-center" : 
 			{
 				"x" : -1.432364088449489e-010,
 				"y" : 1.615777928121176e-010
 			},
-			"massData-mass" : 0.03641719743609428,
+			"massData-mass" : 0.04855626448988915,
 			"name" : "legLowerFront",
 			"position" : 
 			{
@@ -696,15 +696,15 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 1,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture3"
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.003838524920865893,
-			"massData-mass" : 0.1553002297878265,
+			"massData-I" : 0.002303115092217922,
+			"massData-mass" : 0.09318014234304428,
 			"name" : "legUpperFront",
 			"position" : 
 			{
@@ -730,7 +730,7 @@
 							"string" : "main"
 						}
 					],
-					"density" : 0.5,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture2",
@@ -759,13 +759,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.01000927109271288,
+			"massData-I" : 0.01201112568378449,
 			"massData-center" : 
 			{
 				"x" : 0.04780022427439690,
 				"y" : 0.03549533337354660
 			},
-			"massData-mass" : 0.1533063799142838,
+			"massData-mass" : 0.1839676648378372,
 			"name" : "wingLowerBack",
 			"position" : 
 			{
@@ -791,7 +791,7 @@
 							"string" : "main"
 						}
 					],
-					"density" : 0.5,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture2",
@@ -820,13 +820,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.01000927109271288,
+			"massData-I" : 0.01201112568378449,
 			"massData-center" : 
 			{
 				"x" : 0.04780022427439690,
 				"y" : 0.03549533337354660
 			},
-			"massData-mass" : 0.1533063799142838,
+			"massData-mass" : 0.1839676648378372,
 			"name" : "wingLowerFront",
 			"position" : 
 			{
@@ -852,7 +852,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 0.75,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture1",
@@ -879,13 +879,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.001486121094785631,
+			"massData-I" : 0.001188896829262376,
 			"massData-center" : 
 			{
 				"x" : 3.021450467599607e-008,
 				"y" : -6.039174849092888e-008
 			},
-			"massData-mass" : 0.08116077631711960,
+			"massData-mass" : 0.06492862850427628,
 			"name" : "wingUpperFront",
 			"position" : 
 			{
@@ -911,7 +911,7 @@
 							"string" : "cosmetic"
 						}
 					],
-					"density" : 0.75,
+					"density" : 0.6,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture1",
@@ -938,13 +938,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.001486121094785631,
+			"massData-I" : 0.001188896829262376,
 			"massData-center" : 
 			{
 				"x" : 3.021450467599607e-008,
 				"y" : -6.039174849092888e-008
 			},
-			"massData-mass" : 0.08116077631711960,
+			"massData-mass" : 0.06492862850427628,
 			"name" : "wingUpperBack",
 			"position" : 
 			{
@@ -987,7 +987,7 @@
 							"string" : "main"
 						}
 					],
-					"density" : 3,
+					"density" : 1.25,
 					"filter-maskBits" : 65534,
 					"friction" : 0.2,
 					"name" : "fixture0",
@@ -995,13 +995,13 @@
 				}
 			],
 			"linearVelocity" : 0,
-			"massData-I" : 0.2614670395851135,
+			"massData-I" : 0.1089446023106575,
 			"massData-center" : 
 			{
 				"x" : 0.04902569577097893,
 				"y" : 0.2649198174476624
 			},
-			"massData-mass" : 1.638938307762146,
+			"massData-mass" : 0.6828909516334534,
 			"name" : "body",
 			"position" : 
 			{
@@ -2031,7 +2031,7 @@
 			"bodyA" : 4,
 			"bodyB" : 3,
 			"dampingRatio" : 0.1,
-			"frequency" : 1,
+			"frequency" : 8,
 			"name" : "joint10",
 			"refAngle" : 0,
 			"type" : "weld"
@@ -2040,19 +2040,19 @@
 		{
 			"anchorA" : 
 			{
-				"x" : -0.006957650184631348,
-				"y" : 0.1243629455566406
+				"x" : -0.4596729874610901,
+				"y" : 0.1661120057106018
 			},
 			"anchorB" : 
 			{
-				"x" : -0.04335731267929077,
-				"y" : -0.03128767013549805
+				"x" : 0.2546510100364685,
+				"y" : -0.2430249452590942
 			},
-			"bodyA" : 2,
-			"bodyB" : 3,
+			"bodyA" : 17,
+			"bodyB" : 6,
 			"dampingRatio" : 0,
-			"frequency" : 1,
-			"name" : "joint11",
+			"frequency" : 3,
+			"name" : "joint7",
 			"refAngle" : 0,
 			"type" : "weld"
 		},
@@ -2071,7 +2071,7 @@
 			"bodyA" : 11,
 			"bodyB" : 10,
 			"dampingRatio" : 0.15,
-			"frequency" : 1,
+			"frequency" : 4,
 			"name" : "joint5",
 			"refAngle" : 0,
 			"type" : "weld"
@@ -2091,8 +2091,28 @@
 			"bodyA" : 8,
 			"bodyB" : 7,
 			"dampingRatio" : 0.15,
-			"frequency" : 1,
+			"frequency" : 4,
 			"name" : "joint5",
+			"refAngle" : 0,
+			"type" : "weld"
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -0.006957650184631348,
+				"y" : 0.1243629455566406
+			},
+			"anchorB" : 
+			{
+				"x" : -0.04335731267929077,
+				"y" : -0.03128767013549805
+			},
+			"bodyA" : 2,
+			"bodyB" : 3,
+			"dampingRatio" : 1,
+			"frequency" : 4,
+			"name" : "joint11",
 			"refAngle" : 0,
 			"type" : "weld"
 		},
@@ -2110,29 +2130,9 @@
 			},
 			"bodyA" : 5,
 			"bodyB" : 17,
-			"dampingRatio" : 0,
-			"frequency" : 1,
+			"dampingRatio" : 1,
+			"frequency" : 6,
 			"name" : "joint8",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : -0.4596729874610901,
-				"y" : 0.1661120057106018
-			},
-			"anchorB" : 
-			{
-				"x" : 0.2546510100364685,
-				"y" : -0.2430249452590942
-			},
-			"bodyA" : 17,
-			"bodyB" : 6,
-			"dampingRatio" : 0,
-			"frequency" : 1,
-			"name" : "joint7",
 			"refAngle" : 0,
 			"type" : "weld"
 		},

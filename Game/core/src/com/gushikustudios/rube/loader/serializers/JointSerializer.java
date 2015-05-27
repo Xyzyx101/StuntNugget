@@ -317,6 +317,8 @@ public class JointSerializer extends ReadOnlySerializer<Joint>
 				def.localAnchorA.set(anchorA);
 				def.localAnchorB.set(anchorB);
 				def.referenceAngle 	= json.readValue("refAngle", float.class, defaults.referenceAngle, jsonData);
+				def.dampingRatio = json.readValue("dampingRatio", float.class, defaults.dampingRatio ,jsonData);
+				def.frequencyHz = json.readValue("frequency", float.class,defaults.frequencyHz,jsonData);
 			}
 			
 			return def; 

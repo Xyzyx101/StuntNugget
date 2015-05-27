@@ -8,7 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.Joint;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.joints.WeldJoint;
 import com.badlogic.gdx.utils.Array;
 import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
@@ -73,7 +75,6 @@ public class Player {
 			if (bodyType.equals("main")) {
 				primaryBody = thisBody;
 			}
-
 		}
 	}
 
@@ -120,6 +121,7 @@ public class Player {
 	public void fire(float power, float angle) {
 		Gdx.app.log("Player", "fire(" + power + "," + angle + ")");
 		Vector2 powerVector = maxPower.cpy().scl(power).rotate(angle);
-		primaryBody.applyLinearImpulse(powerVector, primaryBody.getPosition(), true);
+		primaryBody.applyLinearImpulse(powerVector, primaryBody.getPosition(),
+				true);
 	}
 }

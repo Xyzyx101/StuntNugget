@@ -114,7 +114,8 @@ public class GameScreen extends ScreenAdapter {
 		}
 
 		player.update();
-		camera.position.set(5f, 5f, 0);
+		//camera.position.set(5f, 5f, 0);
+		camera.setPosition(player.getPosition());
 		camera.update();
 	}
 
