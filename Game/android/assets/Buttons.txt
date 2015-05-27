@@ -4,56 +4,63 @@ filter: Linear,Linear
 repeat: none
 About
   rotate: false
-  xy: 2, 542
+  xy: 942, 92
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
 Back
   rotate: false
-  xy: 2, 452
+  xy: 707, 92
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
 Exit
   rotate: false
-  xy: 2, 362
+  xy: 869, 2
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
+Level
+  rotate: false
+  xy: 2, 2
+  size: 233, 233
+  orig: 233, 233
+  offset: 0, 0
+  index: -1
 Music
   rotate: false
-  xy: 2, 272
+  xy: 634, 2
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
 No
-  rotate: true
-  xy: 2, 632
+  rotate: false
+  xy: 237, 2
   size: 160, 162
   orig: 160, 162
   offset: 0, 0
   index: -1
 Options
   rotate: false
-  xy: 2, 182
+  xy: 472, 92
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
 Play
   rotate: false
-  xy: 2, 92
+  xy: 399, 2
   size: 233, 88
   orig: 233, 88
   offset: 0, 0
   index: -1
 SFX
   rotate: false
-  xy: 2, 2
+  xy: 237, 166
   size: 233, 88
   orig: 233, 88
   offset: 0, 0

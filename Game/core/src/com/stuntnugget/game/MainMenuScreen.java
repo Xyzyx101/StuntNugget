@@ -15,14 +15,12 @@ public class MainMenuScreen extends UIScreen {
 		float buttonWidth = 466f;
 		float buttonHeight = 176f;
 		float centerX = (StuntNugget.SCREEN_WIDTH - buttonWidth) * 0.5f;
-		uiButtons = new UIButton[4];
-		uiButtons[0] = new UIButton("Play", centerX, 698f, buttonWidth,
+		uiButtons = new UIButton[3];
+		uiButtons[0] = new UIButton("Play", centerX, 598f, buttonWidth,
 				buttonHeight);
-		uiButtons[1] = new UIButton("Options", centerX, 507f, buttonWidth,
+		uiButtons[1] = new UIButton("Options", centerX, 407f, buttonWidth,
 				buttonHeight);
-		uiButtons[2] = new UIButton("About", centerX, 316f, buttonWidth,
-				buttonHeight);
-		uiButtons[3] = new UIButton("Exit", centerX, 125f, buttonWidth,
+		uiButtons[2] = new UIButton("About", centerX, 216f, buttonWidth,
 				buttonHeight);
 	}
 
@@ -34,13 +32,11 @@ public class MainMenuScreen extends UIScreen {
 			Gdx.app.debug("MainMenu", "Tap Coords: x:" + touchPoint.x + " y:"
 					+ touchPoint.y);
 			if (uiButtons[0].contains(touchPoint.x, touchPoint.y)) {
-				game.setScreen(new GameScreen(game));
+				game.setScreen(new LevelSelectScreen(game));
 			} else if (uiButtons[1].contains(touchPoint.x, touchPoint.y)) {
 				game.setScreen(new OptionsScreen(game));
 			} else if (uiButtons[2].contains(touchPoint.x, touchPoint.y)) {
 				game.setScreen(new AboutScreen(game));
-			} else if (uiButtons[3].contains(touchPoint.x, touchPoint.y)) {
-				Gdx.app.error("MainMenu", "Impliment game exit");
 			}
 		}
 	}

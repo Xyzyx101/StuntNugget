@@ -28,7 +28,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>premultiplyAlpha</key>
         <false/>
         <key>shapeDebug</key>
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>Buttons.png</filename>
+        <filename>../../Game/android/assets/buttons.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>Buttons.txt</filename>
+                <filename>../../Game/android/assets/buttons.txt</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -180,6 +180,7 @@
             <filename>SpriteSheet/Options.png</filename>
             <filename>SpriteSheet/Play.png</filename>
             <filename>SpriteSheet/SFX.png</filename>
+            <filename>SpriteSheet/Level.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
