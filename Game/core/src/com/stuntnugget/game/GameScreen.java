@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
@@ -20,6 +21,7 @@ public class GameScreen extends ScreenAdapter {
 	public static short GROUND_LAYER = 0x0001;
 	public static short PLAYER_BODY_LAYER = 0x0010;
 	public static short PLAYER_COSMETICS = 0x0100;
+	public static short STAR_TRIGGER = 0x1000;
 
 	private enum State {
 		Start, Control, Shoot
@@ -37,53 +39,45 @@ public class GameScreen extends ScreenAdapter {
 	int velocityIter = 8;
 	int positionIter = 3;
 
-	// Your scene
-	private RubeScene scene;
-	private String sceneFileName;
+	private World world;
 	private Player player;
+	private Array<Star> stars;
 
+	private boolean dirtyStars = false;
+	
 	Vector3 touchPoint;
+	
+	private int score = 0;
 
-	// FIXME
-	Texture img;
-
-	public GameScreen(StuntNugget game) {
+	public GameScreen(StuntNugget game, int level) {
 		camera = game.getCamera();
 		gl = Gdx.gl;
-		gl.glClearColor(1, 0, 0, 1);
+		gl.glClearColor(0.01567f, 0.60784f, 0.94118f, 1);
 		spriteBatch = new SpriteBatch();
 		touchPoint = new Vector3();
 
 		debugRenderer = new Box2DDebugRenderer();
-
-		// FIXME
-		img = new Texture("badlogic.jpg");
-
-		RubeSceneLoader loader = new RubeSceneLoader();
-		// 2. Read your scene
-		sceneFileName = "rube/floor.json";
-		scene = loader.loadScene(Gdx.files.internal(sceneFileName));
-		Filter filter = new Filter();
-		filter.categoryBits = GROUND_LAYER;
-		filter.maskBits = PLAYER_BODY_LAYER;
-		Array<Fixture> fixtures = scene.getFixtures();
-		for (int i = 0; i < fixtures.size; ++i) {
-			fixtures.get(i).setFilterData(filter);
-		}
-		player = new Player(5f, 2f, scene.getWorld());
+	
+		LevelLoader levelLoader = new LevelLoader(0, this);
+		player = levelLoader.getPlayer();
 		Vector2 playerPosition = player.getPosition();
 		controller = new Controller(playerPosition);
+		world = levelLoader.getWorld();
+		stars = levelLoader.getStars();
+		world.setContactListener(new CollisionListener());
 	}
 
 	@Override
 	public void dispose() {
-		scene.clear();
 		debugRenderer.dispose();
 		spriteBatch.dispose();
 		player.dispose();
 	}
 
 	public void update(float dt) {
+		if(dirtyStars) {
+			removeStars();
+		}
 		switch (state) {
 		case Start:
 			if (Gdx.input.justTouched()) {
@@ -109,12 +103,11 @@ public class GameScreen extends ScreenAdapter {
 
 		accumulator += dt;
 		while (accumulator >= secondsPerStep) {
-			scene.getWorld().step(secondsPerStep, velocityIter, positionIter);
+			world.step(secondsPerStep, velocityIter, positionIter);
 			accumulator -= secondsPerStep;
 		}
 
 		player.update();
-		//camera.position.set(5f, 5f, 0);
 		camera.setPosition(player.getPosition());
 		camera.update();
 	}
@@ -125,19 +118,40 @@ public class GameScreen extends ScreenAdapter {
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
 		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
-		spriteBatch.draw(img, 2f * StuntNugget.PPM, 2f * StuntNugget.PPM);
+		for(int i = 0; i < stars.size; ++i) {
+			stars.get(i).draw(spriteBatch);
+		}
 		if (state != State.Shoot) {
 			controller.draw(spriteBatch);
 		}
 		player.draw(spriteBatch);
 		spriteBatch.end();
-
-		debugRenderer.render(scene.getWorld(), camera.combined);
+		debugRenderer.render(world, camera.combined);
 	}
 
 	@Override
 	public void render(float delta) {
 		update(delta);
 		draw();
+	}
+	
+	public void checkDirtyStars() {
+		dirtyStars = true;
+	}
+	
+	private void removeStars() {
+		dirtyStars = false;
+		Array<Star> tempStars = new Array<Star>();
+		for (int i = 0; i < stars.size; ++i) {
+			Star thisStar = stars.get(i);
+			if(thisStar.isDead()) {
+				score += 1;
+				thisStar.kill();
+				Gdx.app.log("GameScreen", "Score:" + score);
+			} else {
+				tempStars.add(stars.get(i));
+			}
+		}
+		stars = tempStars;
 	}
 }

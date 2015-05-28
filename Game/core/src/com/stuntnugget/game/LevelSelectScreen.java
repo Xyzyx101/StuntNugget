@@ -46,8 +46,12 @@ public class LevelSelectScreen extends UIScreen {
 			if (uiButtons[0].contains(touchPoint.x, touchPoint.y)) {
 				game.setScreen(new MainMenuScreen(game));
 			}
+			for(int i = 0; i < levelButtons.length; ++i) {
+				if(levelButtons[i].contains(touchPoint.x, touchPoint.y)) {
+					game.setScreen(new GameScreen(game, i));
+				}
+			}
 		}
-
 	}
 
 	@Override
@@ -56,7 +60,6 @@ public class LevelSelectScreen extends UIScreen {
 		Matrix4 scaledMat = new Matrix4(camera.combined);
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
 		camera.update();
-
 		guiBatch.setProjectionMatrix(scaledMat);
 		guiBatch.setProjectionMatrix(camera.combined);
 		guiBatch.begin();
@@ -69,5 +72,4 @@ public class LevelSelectScreen extends UIScreen {
 		}
 		guiBatch.end();
 	}
-
 }

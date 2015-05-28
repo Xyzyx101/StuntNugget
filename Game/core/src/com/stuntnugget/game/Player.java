@@ -30,13 +30,13 @@ public class Player {
 		RubeScene scene = loader.loadScene(Gdx.files
 				.internal("rube/chicken.json"));
 		initFilters(scene);
-		initTransform(scene, x, y, world);
+		initTransform(scene, x, y);
 		initImages(scene);
 
 		scene.clear();
 	}
 
-	private void initTransform(RubeScene scene, float x, float y, World world2) {
+	private void initTransform(RubeScene scene, float x, float y) {
 		Array<Body> bodies = scene.getBodies();
 		for (int i = 0; i < bodies.size; ++i) {
 			Body body = bodies.get(i);
@@ -51,11 +51,11 @@ public class Player {
 	private void initFilters(RubeScene scene) {
 		Filter mainFilter = new Filter();
 		mainFilter.categoryBits = GameScreen.PLAYER_BODY_LAYER;
-		mainFilter.maskBits = GameScreen.GROUND_LAYER;
+		mainFilter.maskBits = (short) (GameScreen.GROUND_LAYER | GameScreen.STAR_TRIGGER);
 
 		Filter cosmeticFilter = new Filter();
 		cosmeticFilter.categoryBits = GameScreen.PLAYER_COSMETICS;
-		cosmeticFilter.maskBits = GameScreen.NO_COLLISION;
+		cosmeticFilter.maskBits = GameScreen.STAR_TRIGGER;
 
 		Array<Fixture> fixtures = scene.getFixtures();
 		for (int i = 0; i < fixtures.size; ++i) {
@@ -66,6 +66,7 @@ public class Player {
 			} else if (type.equals("cosmetic")) {
 				fixtures.get(i).setFilterData(cosmeticFilter);
 			}
+			fixture.setUserData(this);
 		}
 		Array<Body> bodies = scene.getBodies();
 		for (int i = 0; i < bodies.size; ++i) {
@@ -101,7 +102,6 @@ public class Player {
 
 	public void dispose() {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void update() {
