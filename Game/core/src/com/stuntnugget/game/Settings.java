@@ -37,7 +37,8 @@ public class Settings {
 			// Defaults
 			musicEnabled = true;
 			sfxEnabled = true;
-			for (int i = 0; i < levels; ++i) {
+			levelComplete[0] = 0;
+			for (int i = 1; i < levels; ++i) {
 				levelComplete[i] = -1;
 			}
 		}
