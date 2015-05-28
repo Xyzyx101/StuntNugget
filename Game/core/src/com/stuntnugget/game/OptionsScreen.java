@@ -78,11 +78,22 @@ public class OptionsScreen extends UIScreen {
 
 	private void toggleMusic() {
 		boolean temp = Settings.instance().isMusicEnabled();
-		Settings.instance().setMusicEnabled(!temp);
+		if( temp == true) {
+			Settings.instance().setMusicEnabled(false);
+			SoundManager.pauseMusic();
+		} else {
+			Settings.instance().setMusicEnabled(true);
+			SoundManager.startMusic(SoundManager.MUSIC.SUPER_CIRCUS);
+		}
 	}
 
 	private void toggleSFX() {
 		boolean temp = Settings.instance().isSfxEnabled();
-		Settings.instance().setSfxEnabled(!temp);
+		if(temp == true) {
+			Settings.instance().setSfxEnabled(false);
+		} else {
+			Settings.instance().setSfxEnabled(true);
+			SoundManager.play(SoundManager.SFX.BCAH);
+		}
 	}
 }

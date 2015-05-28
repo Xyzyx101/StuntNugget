@@ -45,6 +45,8 @@ public class GameScreen extends ScreenAdapter {
 
 	private boolean dirtyStars = false;
 	
+	private long cluckId;
+	
 	Vector3 touchPoint;
 	
 	private int score = 0;
@@ -65,6 +67,8 @@ public class GameScreen extends ScreenAdapter {
 		world = levelLoader.getWorld();
 		stars = levelLoader.getStars();
 		world.setContactListener(new CollisionListener());
+		SoundManager.startMusic(SoundManager.MUSIC.WINNER_WINNER);
+		cluckId = SoundManager.play(SoundManager.SFX.CLUCKING);
 	}
 
 	@Override
@@ -91,6 +95,7 @@ public class GameScreen extends ScreenAdapter {
 						Gdx.input.getY(), 0));
 				controller.setTouchPoint(touchPoint.x, touchPoint.y);
 			} else {
+				SoundManager.stop(SoundManager.SFX.CLUCKING, cluckId);
 				controller.fire();
 				player.fire(controller.getPower(), controller.getAngle());
 				state = State.Shoot;

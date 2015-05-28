@@ -1,15 +1,36 @@
 package com.stuntnugget.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
 public class CollisionListener implements ContactListener {
+	boolean canBounce = false;
+	
 	@Override
 	public void endContact(Contact contact) {
-		//FIXME
-		//Gdx.app.log("CollisionListener", "end " + contact.toString());
+		Class fixtureAClass;
+		Class fixtureBClass;
+		Object fixtureAObject = contact.getFixtureA().getUserData();
+		if (fixtureAObject == null) {
+			return;
+		} else {
+			fixtureAClass = fixtureAObject.getClass();
+		}
+		Object fixtureBObject = contact.getFixtureB().getUserData();
+		if (fixtureBObject == null) {
+			return;
+		} else {
+			fixtureBClass = fixtureBObject.getClass();
+		}
+
+		
+		if ((fixtureAClass == Player.class && fixtureBClass == GameScreen.class)
+				|| (fixtureAClass == GameScreen.class && fixtureBClass == Player.class)) {
+			canBounce = true;
+		}
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -31,7 +52,7 @@ public class CollisionListener implements ContactListener {
 		}
 
 		// FIXME
-		//Gdx.app.log("CollisionListener", "start " + fixtureAClass + " "	+ fixtureBClass);
+		Gdx.app.log("CollisionListener", "start " + fixtureAClass + " " + fixtureBClass);
 
 		if (fixtureAClass == Player.class && fixtureBClass == Star.class) {
 			Star star = (Star) fixtureBObject;
@@ -39,6 +60,13 @@ public class CollisionListener implements ContactListener {
 		} else if (fixtureAClass == Star.class && fixtureBClass == Player.class) {
 			Star star = (Star) fixtureAObject;
 			star.hit();
+		}
+		if ((fixtureAClass == Player.class && fixtureBClass == GameScreen.class)
+				|| (fixtureAClass == GameScreen.class && fixtureBClass == Player.class)) {
+			if(canBounce == true) {
+				SoundManager.play(SoundManager.SFX.BOING);
+			}
+			canBounce = false;
 		}
 	}
 

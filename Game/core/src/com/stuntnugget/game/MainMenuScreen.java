@@ -22,6 +22,7 @@ public class MainMenuScreen extends UIScreen {
 				buttonHeight);
 		uiButtons[2] = new UIButton("About", centerX, 216f, buttonWidth,
 				buttonHeight);
+		SoundManager.startMusic(SoundManager.MUSIC.SUPER_CIRCUS);
 	}
 
 	@Override
@@ -32,10 +33,13 @@ public class MainMenuScreen extends UIScreen {
 			Gdx.app.debug("MainMenu", "Tap Coords: x:" + touchPoint.x + " y:"
 					+ touchPoint.y);
 			if (uiButtons[0].contains(touchPoint.x, touchPoint.y)) {
+				SoundManager.play(SoundManager.SFX.DING);
 				game.setScreen(new LevelSelectScreen(game));
 			} else if (uiButtons[1].contains(touchPoint.x, touchPoint.y)) {
+				SoundManager.play(SoundManager.SFX.DING);
 				game.setScreen(new OptionsScreen(game));
 			} else if (uiButtons[2].contains(touchPoint.x, touchPoint.y)) {
+				SoundManager.play(SoundManager.SFX.DING);
 				game.setScreen(new AboutScreen(game));
 			}
 		}

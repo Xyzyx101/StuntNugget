@@ -1,6 +1,5 @@
 package com.stuntnugget.game;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -40,7 +39,6 @@ public class Controller {
 		markerEnd = new Vector2(size.x * 0.75f, size.y * 0.5f);
 		markTime = 1.2f;
 		markTimer = 0;
-		// interpolation = new Interpolation.PowIn(3);
 		interpolation = new Interpolation.SwingIn(1);
 
 		markerOffset = markerStart;
@@ -88,6 +86,8 @@ public class Controller {
 	}
 
 	public void fire() {
+		SoundManager.play(SoundManager.SFX.ROCKET);
+		SoundManager.play(SoundManager.SFX.BCAH);
 		active = false;
 	}
 

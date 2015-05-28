@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.Array;
 import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
 import com.gushikustudios.rube.loader.serializers.utils.RubeImage;
-import com.sun.xml.internal.bind.v2.util.CollisionCheckStack;
 
 public class Star {
 	final String rubefile = "rube/chicken.json";
@@ -69,6 +68,7 @@ public class Star {
 	
 	public void hit() {
 		Gdx.app.log("Star", "Hit!!!");
+		SoundManager.play(SoundManager.SFX.DING);
 		dead = true;
 		gameScreen.checkDirtyStars();
 	}

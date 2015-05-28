@@ -26,6 +26,7 @@ public class StuntNugget extends Game {
 		camera = new GameCamera();
 		
 		Settings.instance().load();
+		SoundManager.instance().load();
 		
 		//TODO
 		//Assets.load();

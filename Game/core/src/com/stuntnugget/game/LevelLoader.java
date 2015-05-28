@@ -49,6 +49,7 @@ public class LevelLoader {
 		Array<Fixture> fixtures = scene.getFixtures();
 		for (int i = 0; i < fixtures.size; ++i) {
 			fixtures.get(i).setFilterData(filter);
+			fixtures.get(i).setUserData(gameScreen);
 		}
 		world = scene.getWorld();
 		scene.clear();

@@ -119,6 +119,7 @@ public class Player {
 	}
 
 	public void fire(float power, float angle) {
+		power = Math.max(power, 0.25f);
 		Gdx.app.log("Player", "fire(" + power + "," + angle + ")");
 		Vector2 powerVector = maxPower.cpy().scl(power).rotate(angle);
 		primaryBody.applyLinearImpulse(powerVector, primaryBody.getPosition(),
