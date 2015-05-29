@@ -20,6 +20,7 @@ public class LevelLoader {
 	Level level;
 	RubeScene scene;
 	Array<Star> stars;
+	LevelRenderer levelRenderer;
 
 	LevelLoader(int levelNumber, GameScreen gameScreen) {
 		this.gameScreen = gameScreen;
@@ -51,6 +52,7 @@ public class LevelLoader {
 			fixtures.get(i).setFilterData(filter);
 			fixtures.get(i).setUserData(gameScreen);
 		}
+		levelRenderer = new LevelRenderer(fixtures);
 		world = scene.getWorld();
 		scene.clear();
 	}
@@ -77,5 +79,9 @@ public class LevelLoader {
 
 	public Vector2 getLevelSize() {
 		return new Vector2(level.width, level.height);
+	}
+	
+	public LevelRenderer getLevelRenderer() {
+		return levelRenderer;
 	}
 }

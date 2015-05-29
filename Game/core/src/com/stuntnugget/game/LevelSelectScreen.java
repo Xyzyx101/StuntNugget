@@ -61,6 +61,7 @@ public class LevelSelectScreen extends UIScreen {
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		Matrix4 scaledMat = new Matrix4(camera.combined);
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
+		camera.position.set(StuntNugget.SCREEN_HEIGHT * 0.5f * StuntNugget.MPP, StuntNugget.SCREEN_HEIGHT * 0.5f  * StuntNugget.MPP, 0f);
 		camera.update();
 		guiBatch.setProjectionMatrix(scaledMat);
 		guiBatch.setProjectionMatrix(camera.combined);

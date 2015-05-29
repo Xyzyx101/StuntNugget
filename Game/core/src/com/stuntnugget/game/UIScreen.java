@@ -19,6 +19,7 @@ public abstract class UIScreen extends ScreenAdapter {
 		this.game = game;
 		camera = game.getCamera();
 		camera.position.set(StuntNugget.SCREEN_HEIGHT * 0.5f * StuntNugget.MPP, StuntNugget.SCREEN_HEIGHT * 0.5f  * StuntNugget.MPP, 0f);
+		camera.update();
 		this.guiBatch = game.guiBatch;
 		gl = Gdx.gl;
 		gl.glClearColor(0, 0, 0, 1);

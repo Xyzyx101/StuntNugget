@@ -24,10 +24,12 @@ public class GameScreen extends ScreenAdapter {
 	public static short STAR_TRIGGER = 0x1000;
 
 	private enum State {
-		Start, Control, Shoot, End
+		Cinema, Start, Control, Shoot, End
 	}
 
-	private State state = State.Start;
+	private StuntNugget game;
+	private int level;
+	private State state = State.Cinema;
 	private GameCamera camera;
 	private GL20 gl;
 	private SpriteBatch spriteBatch;
@@ -42,6 +44,7 @@ public class GameScreen extends ScreenAdapter {
 	private World world;
 	private Player player;
 	private Array<Star> stars;
+	private LevelRenderer levelRenderer;
 
 	private boolean dirtyStars = false;
 
@@ -55,8 +58,11 @@ public class GameScreen extends ScreenAdapter {
 	private float threeStarEndTime;
 	private float normalEndTime;
 	
+	private CinemaScroller cinemaScroller;
 
 	public GameScreen(StuntNugget game, int level) {
+		this.game = game;
+		this.level = level;
 		camera = game.getCamera();
 		gl = Gdx.gl;
 		gl.glClearColor(0.01567f, 0.60784f, 0.94118f, 1);
@@ -73,6 +79,8 @@ public class GameScreen extends ScreenAdapter {
 		stars = levelLoader.getStars();
 		world.setContactListener(new CollisionListener());
 		levelSize = levelLoader.getLevelSize();
+		levelRenderer = levelLoader.getLevelRenderer();
+		cinemaScroller = new CinemaScroller(stars, playerPosition);
 		SoundManager.startMusic(SoundManager.MUSIC.WINNER_WINNER);
 		cluckId = SoundManager.play(SoundManager.SFX.CLUCKING);
 	}
@@ -82,6 +90,7 @@ public class GameScreen extends ScreenAdapter {
 		debugRenderer.dispose();
 		spriteBatch.dispose();
 		player.dispose();
+		levelRenderer.dispose();
 	}
 
 	public void update(float dt) {
@@ -89,6 +98,12 @@ public class GameScreen extends ScreenAdapter {
 			removeStars();
 		}
 		switch (state) {
+		case Cinema:
+			cinemaScroller.update(dt);
+			if (cinemaScroller.isDone()) {
+				state = State.Start;
+			}
+			break;
 		case Start:
 			if (Gdx.input.justTouched()) {
 				state = State.Control;
@@ -108,15 +123,32 @@ public class GameScreen extends ScreenAdapter {
 			}
 			break;
 		case Shoot:
-			float velocitySquared = player.getVelocity().x * player.getVelocity().x + player.getVelocity().y * player.getVelocity().y;
-			//TODO min speed
-			//Gdx.app.log("GameScreen",  "" + velocitySquared );
-			if(velocitySquared < 1f) {
+			float velocitySquared = player.getVelocity().x
+					* player.getVelocity().x + player.getVelocity().y
+					* player.getVelocity().y;
+			Gdx.app.log("GameScreen", "" + velocitySquared );
+			
+			// End level criteria
+			if (velocitySquared < 1f ||
+					player.getPosition().x < 0 ||
+					player.getPosition().x > levelSize.x ||
+					player.getPosition().y < 0) {
 				state = State.End;
+				Gdx.app.log("GameScreen", "End");
+				if(score == 3) {
+					endTimer = threeStarEndTime;
+				} else {
+					endTimer = normalEndTime;
+				}
 			}
 			break;
 		case End:
-			//Gdx.app.log("GameScreen", "End");
+			endTimer -= dt;
+			if(endTimer <= 0) {
+				Settings.instance().setScore(level, score);
+			}
+			SoundManager.stopMusic();
+			game.setScreen(new LevelSelectScreen(game));
 			break;
 		}
 
@@ -126,7 +158,11 @@ public class GameScreen extends ScreenAdapter {
 			accumulator -= secondsPerStep;
 		}
 		player.update();
-		camera.setPositionWithLevelBounds(player.getPosition(), levelSize);
+		if (state == State.Cinema) {
+			camera.setPositionWithLevelBounds(cinemaScroller.getCameraPosition(), levelSize);
+		} else {
+			camera.setPositionWithLevelBounds(player.getPosition(), levelSize);
+		}
 		camera.update();
 	}
 
@@ -135,6 +171,7 @@ public class GameScreen extends ScreenAdapter {
 		Matrix4 scaledMat = new Matrix4(camera.combined);
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
 		spriteBatch.setProjectionMatrix(scaledMat);
+		levelRenderer.draw(scaledMat);
 		spriteBatch.begin();
 		for (int i = 0; i < stars.size; ++i) {
 			stars.get(i).draw(spriteBatch);
@@ -144,7 +181,7 @@ public class GameScreen extends ScreenAdapter {
 		}
 		player.draw(spriteBatch);
 		spriteBatch.end();
-		debugRenderer.render(world, camera.combined);
+		// debugRenderer.render(world, camera.combined);
 	}
 
 	@Override

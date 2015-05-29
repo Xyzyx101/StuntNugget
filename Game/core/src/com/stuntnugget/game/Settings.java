@@ -84,4 +84,19 @@ public class Settings {
 	public int getLevelStatus(int level) {
 		return levelComplete[level];
 	}
+
+	public void setScore(int level, int score) {
+		if(score==0) {
+			return;
+		}
+		if(levelComplete[level] < score) {
+			levelComplete[level] = score;
+		}
+		if(level < levelComplete.length - 1) {
+			if(levelComplete[level + 1] == -1) {
+				levelComplete[level + 1] = 0;
+			}
+		}
+		save();
+	}
 }

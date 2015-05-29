@@ -80,4 +80,8 @@ public class Star {
 	public void kill() {
 		world.destroyBody(body);
 	}
+	
+	public Vector2 getPosition() {
+		return body.getPosition();
+	}
 }

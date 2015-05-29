@@ -25,7 +25,7 @@ public class Player {
 
 	public Player(float x, float y, World world) {
 		this.world = world;
-		maxPower = new Vector2(30f, 0f);
+		maxPower = new Vector2(50f, 0f);
 		RubeSceneLoader loader = new RubeSceneLoader(world);
 		RubeScene scene = loader.loadScene(Gdx.files
 				.internal("rube/chicken.json"));
