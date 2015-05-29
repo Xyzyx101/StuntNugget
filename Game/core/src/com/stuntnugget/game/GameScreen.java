@@ -17,11 +17,13 @@ import com.gushikustudios.rube.RubeScene;
 import com.gushikustudios.rube.loader.RubeSceneLoader;
 
 public class GameScreen extends ScreenAdapter {
-	public static short NO_COLLISION = 0x0000;
-	public static short GROUND_LAYER = 0x0001;
-	public static short PLAYER_BODY_LAYER = 0x0010;
-	public static short PLAYER_COSMETICS = 0x0100;
-	public static short STAR_TRIGGER = 0x1000;
+	public static final short NO_COLLISION = 0x0;
+	public static final short GROUND_LAYER = 0x1;
+	public static final short PLAYER_BODY_LAYER = 0x2;
+	public static final short PLAYER_COSMETICS = 0x4;
+	public static final short STAR_TRIGGER = 0x8;
+	public static final short STAND_PROP = 0x10;
+	public static final short PROP_WEIGHT = 0x20;
 
 	private enum State {
 		Cinema, Start, Control, Shoot, End
@@ -55,8 +57,8 @@ public class GameScreen extends ScreenAdapter {
 	private int score = 0;
 	private Vector2 levelSize;
 	private float endTimer;
-	private float threeStarEndTime;
-	private float normalEndTime;
+	private float threeStarEndTime = 5.0f;
+	private float normalEndTime = 3.0f;
 	
 	private CinemaScroller cinemaScroller;
 
@@ -83,6 +85,7 @@ public class GameScreen extends ScreenAdapter {
 		cinemaScroller = new CinemaScroller(stars, playerPosition);
 		SoundManager.startMusic(SoundManager.MUSIC.WINNER_WINNER);
 		cluckId = SoundManager.play(SoundManager.SFX.CLUCKING);
+		player.changeState(Player.State.Stand);
 	}
 
 	@Override
@@ -118,6 +121,7 @@ public class GameScreen extends ScreenAdapter {
 			} else {
 				SoundManager.stop(SoundManager.SFX.CLUCKING, cluckId);
 				controller.fire();
+				player.changeState(Player.State.Flop);
 				player.fire(controller.getPower(), controller.getAngle());
 				state = State.Shoot;
 			}
@@ -126,17 +130,17 @@ public class GameScreen extends ScreenAdapter {
 			float velocitySquared = player.getVelocity().x
 					* player.getVelocity().x + player.getVelocity().y
 					* player.getVelocity().y;
-			Gdx.app.log("GameScreen", "" + velocitySquared );
 			
 			// End level criteria
-			if (velocitySquared < 1f ||
+			if (player.getVelocity().x < 1.0f ||
 					player.getPosition().x < 0 ||
 					player.getPosition().x > levelSize.x ||
 					player.getPosition().y < 0) {
 				state = State.End;
-				Gdx.app.log("GameScreen", "End");
 				if(score == 3) {
 					endTimer = threeStarEndTime;
+					player.changeState(Player.State.Cheer);
+					SoundManager.play(SoundManager.SFX.FANFARE);
 				} else {
 					endTimer = normalEndTime;
 				}
@@ -146,9 +150,9 @@ public class GameScreen extends ScreenAdapter {
 			endTimer -= dt;
 			if(endTimer <= 0) {
 				Settings.instance().setScore(level, score);
+				SoundManager.stopMusic();
+				game.setScreen(new LevelSelectScreen(game));
 			}
-			SoundManager.stopMusic();
-			game.setScreen(new LevelSelectScreen(game));
 			break;
 		}
 
@@ -181,7 +185,7 @@ public class GameScreen extends ScreenAdapter {
 		}
 		player.draw(spriteBatch);
 		spriteBatch.end();
-		// debugRenderer.render(world, camera.combined);
+		debugRenderer.render(world, camera.combined);
 	}
 
 	@Override
@@ -202,7 +206,6 @@ public class GameScreen extends ScreenAdapter {
 			if (thisStar.isDead()) {
 				score += 1;
 				thisStar.kill();
-				Gdx.app.log("GameScreen", "Score:" + score);
 			} else {
 				tempStars.add(stars.get(i));
 			}

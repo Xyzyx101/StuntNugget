@@ -42,6 +42,20 @@
   [
     
     {
+      "class" : "world",
+      "displayName" : "atlas",
+      "name" : "atlas",
+      "type" : "string"
+    },
+    
+    {
+      "class" : "image",
+      "displayName" : "drawOrder",
+      "name" : "drawOrder",
+      "type" : "int"
+    },
+    
+    {
       "class" : "joint",
       "comboboxEntries" : 
       [
@@ -102,13 +116,6 @@
     },
     
     {
-      "class" : "world",
-      "displayName" : "atlas",
-      "name" : "atlas",
-      "type" : "string"
-    },
-    
-    {
       "class" : "fixture",
       "comboboxEntries" : 
       [
@@ -132,13 +139,6 @@
       "displayName" : "type",
       "name" : "type",
       "type" : "string"
-    },
-    
-    {
-      "class" : "image",
-      "displayName" : "drawOrder",
-      "name" : "drawOrder",
-      "type" : "int"
     }
   ],
   "metaworld" : 
@@ -1311,117 +1311,6 @@
           "y" : 1.864420771598816
         },
         "type" : "dynamic"
-      },
-      
-      {
-        "angle" : 0,
-        "angularDamping" : 1,
-        "angularVelocity" : 0,
-        "awake" : true,
-        "customProperties" : 
-        [
-          
-          {
-            "name" : "bodyType",
-            "string" : "standProp"
-          }
-        ],
-        "fixture" : 
-        [
-          
-          {
-            "customProperties" : 
-            [
-              
-              {
-                "name" : "type",
-                "string" : "standProp"
-              }
-            ],
-            "density" : 1,
-            "filter-maskBits" : 65534,
-            "friction" : 0.2,
-            "id" : 24,
-            "name" : "fixture15",
-            "shapes" : 
-            [
-              
-              {
-                "type" : "polygon"
-              }
-            ],
-            "vertices" : 
-            {
-              "x" : 
-              [
-                0.5527454018592835,
-                0.4321485459804535,
-                -0.04038828983902931,
-                -0.5090354681015015,
-                -0.6208918690681458,
-                -0.3699176609516144,
-                0.3028984963893890
-              ],
-              "y" : 
-              [
-                0.5802390575408936,
-                1.088464260101318,
-                1.311050176620483,
-                1.080386161804199,
-                0.5701661109924316,
-                0.2028437554836273,
-                0.1985042691230774
-              ]
-            }
-          },
-          
-          {
-            "customProperties" : 
-            [
-              
-              {
-                "name" : "type",
-                "string" : "propWeight"
-              }
-            ],
-            "density" : 8,
-            "filter-categoryBits" : 0,
-            "friction" : 0.2,
-            "id" : 25,
-            "name" : "fixture16",
-            "sensor" : true,
-            "shapes" : 
-            [
-              
-              {
-                "radius" : 0.3037380278110504,
-                "type" : "circle"
-              }
-            ],
-            "vertices" : 
-            {
-              "x" : [ -0.03535920009016991 ],
-              "y" : [ -2.813470363616943 ]
-            }
-          }
-        ],
-        "id" : 20,
-        "linearDamping" : 1,
-        "linearVelocity" : 0,
-        "massData-I" : 19.12435722351074,
-        "massData-center" : 
-        {
-          "x" : -0.03517567738890648,
-          "y" : -1.757905125617981
-        },
-        "massData-mass" : 3.309595346450806,
-        "name" : "standProp",
-        "position" : 
-        {
-          "x" : -0.04137046262621880,
-          "y" : 0.3026021420955658
-        },
-        "type" : "dynamic"
       }
     ],
     "metaimage" : 
@@ -1906,28 +1795,6 @@
         "referenceAngle" : 0,
         "type" : "revolute",
         "upperLimit" : 0
-      },
-      
-      {
-        "anchorA" : 
-        {
-          "x" : -0.03227049857378006,
-          "y" : -0.01438849978148937
-        },
-        "anchorB" : 
-        {
-          "x" : -0.03535920009016991,
-          "y" : 0.7100890278816223
-        },
-        "bodyA" : 1,
-        "bodyB" : 20,
-        "collideConnected" : false,
-        "dampingRatio" : 0,
-        "frequency" : 0,
-        "id" : 2,
-        "name" : "joint0",
-        "referenceAngle" : 0,
-        "type" : "weld"
       },
       
       {

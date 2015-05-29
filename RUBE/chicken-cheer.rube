@@ -42,6 +42,39 @@
   [
     
     {
+      "class" : "world",
+      "displayName" : "atlas",
+      "name" : "atlas",
+      "type" : "string"
+    },
+    
+    {
+      "class" : "fixture",
+      "comboboxEntries" : 
+      [
+        
+        {
+          "entry" : "main"
+        },
+        
+        {
+          "entry" : "cosmetic"
+        },
+        
+        {
+          "entry" : "standProp"
+        },
+        
+        {
+          "entry" : "propWeight"
+        }
+      ],
+      "displayName" : "type",
+      "name" : "type",
+      "type" : "string"
+    },
+    
+    {
       "class" : "joint",
       "comboboxEntries" : 
       [
@@ -98,39 +131,6 @@
       ],
       "displayName" : "bodyType",
       "name" : "bodyType",
-      "type" : "string"
-    },
-    
-    {
-      "class" : "world",
-      "displayName" : "atlas",
-      "name" : "atlas",
-      "type" : "string"
-    },
-    
-    {
-      "class" : "fixture",
-      "comboboxEntries" : 
-      [
-        
-        {
-          "entry" : "main"
-        },
-        
-        {
-          "entry" : "cosmetic"
-        },
-        
-        {
-          "entry" : "standProp"
-        },
-        
-        {
-          "entry" : "propWeight"
-        }
-      ],
-      "displayName" : "type",
-      "name" : "type",
       "type" : "string"
     },
     
@@ -238,7 +238,7 @@
       },
       
       {
-        "angle" : 0,
+        "angle" : -2.412907361984253,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -296,14 +296,14 @@
         "name" : "wingUpperBack",
         "position" : 
         {
-          "x" : 0.2118087559938431,
-          "y" : 1.290920972824097
+          "x" : 0.1005994156002998,
+          "y" : 1.435851573944092
         },
         "type" : "dynamic"
       },
       
       {
-        "angle" : 0,
+        "angle" : -2.482597589492798,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -361,14 +361,14 @@
         "name" : "wingUpperFront",
         "position" : 
         {
-          "x" : 0.2085966467857361,
-          "y" : 1.282481431961060
+          "x" : 0.1017434969544411,
+          "y" : 1.450162291526794
         },
         "type" : "dynamic"
       },
       
       {
-        "angle" : 0,
+        "angle" : -1.328982591629028,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -428,14 +428,14 @@
         "name" : "wingLowerFront",
         "position" : 
         {
-          "x" : -0.1175708323717117,
-          "y" : 1.167786955833435
+          "x" : -0.09883378446102142,
+          "y" : 1.625316619873047
         },
         "type" : "dynamic"
       },
       
       {
-        "angle" : 0,
+        "angle" : -1.357546091079712,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -495,8 +495,8 @@
         "name" : "wingLowerBack",
         "position" : 
         {
-          "x" : -0.1430454850196838,
-          "y" : 1.162213563919067
+          "x" : -0.1026818752288818,
+          "y" : 1.657009601593018
         },
         "type" : "dynamic"
       },
@@ -551,7 +551,7 @@
       },
       
       {
-        "angle" : 0,
+        "angle" : -0.07036057859659195,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -609,8 +609,8 @@
         "name" : "legLowerFront",
         "position" : 
         {
-          "x" : -0.1163741946220398,
-          "y" : 0.6111732721328735
+          "x" : -0.1700046509504318,
+          "y" : 0.6341928243637085
         },
         "type" : "dynamic"
       },
@@ -731,7 +731,7 @@
       },
       
       {
-        "angle" : 0,
+        "angle" : 0.1336277872323990,
         "angularVelocity" : 0,
         "awake" : true,
         "fixture" : 
@@ -789,8 +789,8 @@
         "name" : "legLowerBack",
         "position" : 
         {
-          "x" : -0.07566808164119721,
-          "y" : 0.6061453223228455
+          "x" : 0.03035819157958031,
+          "y" : 0.5785106420516968
         },
         "type" : "dynamic"
       },
@@ -1311,117 +1311,6 @@
           "y" : 1.864420771598816
         },
         "type" : "dynamic"
-      },
-      
-      {
-        "angle" : 0,
-        "angularDamping" : 1,
-        "angularVelocity" : 0,
-        "awake" : true,
-        "customProperties" : 
-        [
-          
-          {
-            "name" : "bodyType",
-            "string" : "standProp"
-          }
-        ],
-        "fixture" : 
-        [
-          
-          {
-            "customProperties" : 
-            [
-              
-              {
-                "name" : "type",
-                "string" : "standProp"
-              }
-            ],
-            "density" : 1,
-            "filter-maskBits" : 65534,
-            "friction" : 0.2,
-            "id" : 24,
-            "name" : "fixture15",
-            "shapes" : 
-            [
-              
-              {
-                "type" : "polygon"
-              }
-            ],
-            "vertices" : 
-            {
-              "x" : 
-              [
-                0.5527454018592835,
-                0.4321485459804535,
-                -0.04038828983902931,
-                -0.5090354681015015,
-                -0.6208918690681458,
-                -0.3699176609516144,
-                0.3028984963893890
-              ],
-              "y" : 
-              [
-                0.5802390575408936,
-                1.088464260101318,
-                1.311050176620483,
-                1.080386161804199,
-                0.5701661109924316,
-                0.2028437554836273,
-                0.1985042691230774
-              ]
-            }
-          },
-          
-          {
-            "customProperties" : 
-            [
-              
-              {
-                "name" : "type",
-                "string" : "propWeight"
-              }
-            ],
-            "density" : 8,
-            "filter-categoryBits" : 0,
-            "friction" : 0.2,
-            "id" : 25,
-            "name" : "fixture16",
-            "sensor" : true,
-            "shapes" : 
-            [
-              
-              {
-                "radius" : 0.3037380278110504,
-                "type" : "circle"
-              }
-            ],
-            "vertices" : 
-            {
-              "x" : [ -0.03535920009016991 ],
-              "y" : [ -2.813470363616943 ]
-            }
-          }
-        ],
-        "id" : 20,
-        "linearDamping" : 1,
-        "linearVelocity" : 0,
-        "massData-I" : 19.12435722351074,
-        "massData-center" : 
-        {
-          "x" : -0.03517567738890648,
-          "y" : -1.757905125617981
-        },
-        "massData-mass" : 3.309595346450806,
-        "name" : "standProp",
-        "position" : 
-        {
-          "x" : -0.04137046262621880,
-          "y" : 0.3026021420955658
-        },
-        "type" : "dynamic"
       }
     ],
     "metaimage" : 
@@ -1897,37 +1786,15 @@
           }
         ],
         "enableLimit" : false,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 1,
         "lowerLimit" : 0,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 2500.0,
         "motorSpeed" : 0,
         "name" : "shoulderF",
         "referenceAngle" : 0,
         "type" : "revolute",
         "upperLimit" : 0
-      },
-      
-      {
-        "anchorA" : 
-        {
-          "x" : -0.03227049857378006,
-          "y" : -0.01438849978148937
-        },
-        "anchorB" : 
-        {
-          "x" : -0.03535920009016991,
-          "y" : 0.7100890278816223
-        },
-        "bodyA" : 1,
-        "bodyB" : 20,
-        "collideConnected" : false,
-        "dampingRatio" : 0,
-        "frequency" : 0,
-        "id" : 2,
-        "name" : "joint0",
-        "referenceAngle" : 0,
-        "type" : "weld"
       },
       
       {
@@ -1953,10 +1820,10 @@
           }
         ],
         "enableLimit" : true,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 7,
         "lowerLimit" : -0.2094395160675049,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 2500.0,
         "motorSpeed" : 0,
         "name" : "elbowF",
         "referenceAngle" : 0,
@@ -1987,10 +1854,10 @@
           }
         ],
         "enableLimit" : true,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 8,
         "lowerLimit" : -0.2094395160675049,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 2500.0,
         "motorSpeed" : 0,
         "name" : "elbowB",
         "referenceAngle" : 0,
@@ -2021,10 +1888,10 @@
           }
         ],
         "enableLimit" : false,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 10,
         "lowerLimit" : 0,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 2500.0,
         "motorSpeed" : 0,
         "name" : "shoulderB",
         "referenceAngle" : 0,
@@ -2111,10 +1978,10 @@
           }
         ],
         "enableLimit" : true,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 13,
         "lowerLimit" : -1.047197580337524,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 100.0,
         "motorSpeed" : 0,
         "name" : "hipF",
         "referenceAngle" : 0,
@@ -2167,7 +2034,7 @@
           }
         ],
         "enableLimit" : true,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 15,
         "lowerLimit" : -1.308996915817261,
         "maxMotorTorque" : 0,
@@ -2201,10 +2068,10 @@
           }
         ],
         "enableLimit" : true,
-        "enableMotor" : false,
+        "enableMotor" : true,
         "id" : 16,
         "lowerLimit" : -1.047197580337524,
-        "maxMotorTorque" : 0,
+        "maxMotorTorque" : 100.0,
         "motorSpeed" : 0,
         "name" : "hipB",
         "referenceAngle" : 0,

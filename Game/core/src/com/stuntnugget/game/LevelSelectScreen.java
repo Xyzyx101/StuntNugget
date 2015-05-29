@@ -26,7 +26,6 @@ public class LevelSelectScreen extends UIScreen {
 		for (int i = 0; i < numLevels; ++i) {
 			int col = i % 3;
 			int row = i / 3;
-			Gdx.app.log("LevelSelectScreen", "row:" + row + " col:" + col);
 			levelButtons[i] = new LevelButton(i, levelButtonPadding + col
 					* (levelButtonWidth + levelButtonGap),
 					StuntNugget.SCREEN_HEIGHT - levelButtonPadding
@@ -41,8 +40,6 @@ public class LevelSelectScreen extends UIScreen {
 		if (Gdx.input.justTouched()) {
 			camera.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(),
 					0));
-			Gdx.app.debug("LevelSelectScreen", "Tap Coords: x:" + touchPoint.x
-					+ " y:" + touchPoint.y);
 			if (uiButtons[0].contains(touchPoint.x, touchPoint.y)) {
 				game.setScreen(new MainMenuScreen(game));
 			}

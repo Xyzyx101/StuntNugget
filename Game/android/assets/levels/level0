@@ -1,23 +1,23 @@
 {
-	rubeFile : "floor.json",
+	rubeFile : "level0.json",
 	width : 50,
 	height : 35,
 	player : {
-		x: 4,
+		x: 5,
 		y: 3
 		}
 	stars: [
 		{
-			x: 10,
-			y: 5
+			x: 12,
+			y: 4.5
 		},
 		{
-			x: 20,
-			y: 7
+			x: 14,
+			y: 5.5
 		},
 		{
-			x: 30,
-			y: 5
+			x: 16,
+			y: 6.5
 		}
 	],
 	barrels: []

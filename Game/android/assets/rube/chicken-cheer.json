@@ -7,106 +7,6 @@
 		
 		{
 			"angle" : 0,
-			"angularDamping" : 0.7,
-			"angularVelocity" : 0,
-			"awake" : true,
-			"customProperties" : 
-			[
-				
-				{
-					"name" : "bodyType",
-					"string" : "standProp"
-				}
-			],
-			"fixture" : 
-			[
-				
-				{
-					"circle" : 
-					{
-						"center" : 
-						{
-							"x" : -0.03535920009016991,
-							"y" : -2.813470363616943
-						},
-						"radius" : 0.3037380278110504
-					},
-					"customProperties" : 
-					[
-						
-						{
-							"name" : "type",
-							"string" : "propWeight"
-						}
-					],
-					"density" : 8,
-					"filter-categoryBits" : 0,
-					"friction" : 0.2,
-					"name" : "fixture16",
-					"sensor" : true
-				},
-				
-				{
-					"customProperties" : 
-					[
-						
-						{
-							"name" : "type",
-							"string" : "standProp"
-						}
-					],
-					"density" : 1,
-					"filter-maskBits" : 65534,
-					"friction" : 0.2,
-					"name" : "fixture15",
-					"polygon" : 
-					{
-						"vertices" : 
-						{
-							"x" : 
-							[
-								0.5527454018592835,
-								0.4321485459804535,
-								-0.04038828983902931,
-								-0.5090354681015015,
-								-0.6208918690681458,
-								-0.3699176609516144,
-								0.3028984963893890
-							],
-							"y" : 
-							[
-								0.5802390575408936,
-								1.088464260101318,
-								1.311050176620483,
-								1.080386161804199,
-								0.5701661109924316,
-								0.2028437554836273,
-								0.1985042691230774
-							]
-						}
-					}
-				}
-			],
-			"linearDamping" : 0.5,
-			"linearVelocity" : 0,
-			"massData-I" : 19.12435722351074,
-			"massData-center" : 
-			{
-				"x" : -0.03517567738890648,
-				"y" : -1.757905125617981
-			},
-			"massData-mass" : 3.309595346450806,
-			"name" : "standProp",
-			"position" : 
-			{
-				"x" : -0.04137046262621880,
-				"y" : 0.3026021420955658
-			},
-			"type" : 2
-		},
-		
-		{
-			"angle" : 0,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -559,7 +459,7 @@
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : 0.1336277872323990,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -611,8 +511,8 @@
 			"name" : "legLowerBack",
 			"position" : 
 			{
-				"x" : -0.07566808164119721,
-				"y" : 0.6061453223228455
+				"x" : 0.03035819157958031,
+				"y" : 0.5785106420516968
 			},
 			"type" : 2
 		},
@@ -717,7 +617,7 @@
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : -0.07036057859659195,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -769,8 +669,8 @@
 			"name" : "legLowerFront",
 			"position" : 
 			{
-				"x" : -0.1163741946220398,
-				"y" : 0.6111732721328735
+				"x" : -0.1700046509504318,
+				"y" : 0.6341928243637085
 			},
 			"type" : 2
 		},
@@ -815,7 +715,7 @@
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : -1.357546091079712,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -869,14 +769,14 @@
 			"name" : "wingLowerBack",
 			"position" : 
 			{
-				"x" : -0.1430454850196838,
-				"y" : 1.162213563919067
+				"x" : -0.1026818752288818,
+				"y" : 1.657009601593018
 			},
 			"type" : 2
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : -1.328982591629028,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -930,14 +830,14 @@
 			"name" : "wingLowerFront",
 			"position" : 
 			{
-				"x" : -0.1175708323717117,
-				"y" : 1.167786955833435
+				"x" : -0.09883378446102142,
+				"y" : 1.625316619873047
 			},
 			"type" : 2
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : -2.482597589492798,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -989,14 +889,14 @@
 			"name" : "wingUpperFront",
 			"position" : 
 			{
-				"x" : 0.2085966467857361,
-				"y" : 1.282481431961060
+				"x" : 0.1017434969544411,
+				"y" : 1.450162291526794
 			},
 			"type" : 2
 		},
 		
 		{
-			"angle" : 0,
+			"angle" : -2.412907361984253,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"fixture" : 
@@ -1048,8 +948,8 @@
 			"name" : "wingUpperBack",
 			"position" : 
 			{
-				"x" : 0.2118087559938431,
-				"y" : 1.290920972824097
+				"x" : 0.1005994156002998,
+				"y" : 1.435851573944092
 			},
 			"type" : 2
 		},
@@ -1168,7 +1068,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 7,
+			"body" : 6,
 			"center" : 0,
 			"corners" : 
 			{
@@ -1218,7 +1118,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 14,
+			"body" : 13,
 			"center" : 0,
 			"corners" : 
 			{
@@ -1268,7 +1168,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 17,
+			"body" : 16,
 			"center" : 
 			{
 				"x" : -0.07005749642848969,
@@ -1322,7 +1222,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 8,
+			"body" : 7,
 			"center" : 
 			{
 				"x" : -0.006534725427627564,
@@ -1376,7 +1276,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 9,
+			"body" : 8,
 			"center" : 
 			{
 				"x" : -4.917383193969727e-007,
@@ -1430,7 +1330,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 10,
+			"body" : 9,
 			"center" : 
 			{
 				"x" : -3.352761268615723e-008,
@@ -1484,7 +1384,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 18,
+			"body" : 17,
 			"center" : 
 			{
 				"x" : 0.01445659995079041,
@@ -1538,7 +1438,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 6,
+			"body" : 5,
 			"center" : 0,
 			"corners" : 
 			{
@@ -1588,7 +1488,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 3,
+			"body" : 2,
 			"center" : 0,
 			"corners" : 
 			{
@@ -1638,7 +1538,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 4,
+			"body" : 3,
 			"center" : 
 			{
 				"x" : -0.009048700332641602,
@@ -1692,7 +1592,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 5,
+			"body" : 4,
 			"center" : 
 			{
 				"x" : 0.05185937881469727,
@@ -1746,7 +1646,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 1,
+			"body" : 0,
 			"center" : 0,
 			"corners" : 
 			{
@@ -1796,7 +1696,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 2,
+			"body" : 1,
 			"center" : 
 			{
 				"x" : -0.0009999275207519531,
@@ -1850,7 +1750,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 11,
+			"body" : 10,
 			"center" : 
 			{
 				"x" : -0.003630585968494415,
@@ -1904,7 +1804,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 12,
+			"body" : 11,
 			"center" : 
 			{
 				"x" : -4.917383193969727e-007,
@@ -1958,7 +1858,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 13,
+			"body" : 12,
 			"center" : 
 			{
 				"x" : -3.352761268615723e-008,
@@ -2012,7 +1912,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 15,
+			"body" : 14,
 			"center" : 0,
 			"corners" : 
 			{
@@ -2062,7 +1962,7 @@
 		
 		{
 			"aspectScale" : 1,
-			"body" : 16,
+			"body" : 15,
 			"center" : 
 			{
 				"x" : -0.07005749642848969,
@@ -2120,6 +2020,138 @@
 		{
 			"anchorA" : 
 			{
+				"x" : 0.2189640104770660,
+				"y" : 0.3997699618339539
+			},
+			"anchorB" : 
+			{
+				"x" : -0.03730356693267822,
+				"y" : 0.09074543416500092
+			},
+			"bodyA" : 17,
+			"bodyB" : 16,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "jointName",
+					"string" : "shoulderB"
+				}
+			],
+			"enableLimit" : false,
+			"enableMotor" : true,
+			"jointSpeed" : 0,
+			"lowerLimit" : 0,
+			"maxMotorTorque" : 2500.0,
+			"motorSpeed" : 0,
+			"name" : "shoulderB",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : -0.01542064268141985,
+				"y" : 0.1050360500812531
+			},
+			"anchorB" : 
+			{
+				"x" : 0.2189640104770660,
+				"y" : 0.3997699618339539
+			},
+			"bodyA" : 15,
+			"bodyB" : 17,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "jointName",
+					"string" : "shoulderF"
+				}
+			],
+			"enableLimit" : false,
+			"enableMotor" : true,
+			"jointSpeed" : 0,
+			"lowerLimit" : 0,
+			"maxMotorTorque" : 2500.0,
+			"motorSpeed" : 0,
+			"name" : "shoulderF",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 0.3551858961582184,
+				"y" : -0.06314729154109955
+			},
+			"anchorB" : 
+			{
+				"x" : 0.0003316975489724428,
+				"y" : -0.1897518634796143
+			},
+			"bodyA" : 13,
+			"bodyB" : 16,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "jointName",
+					"string" : "elbowB"
+				}
+			],
+			"enableLimit" : true,
+			"enableMotor" : true,
+			"jointSpeed" : 0,
+			"lowerLimit" : -0.2094395160675049,
+			"maxMotorTorque" : 2500.0,
+			"motorSpeed" : 0,
+			"name" : "elbowB",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0.7853981852531433
+		},
+		
+		{
+			"anchorA" : 
+			{
+				"x" : 0.003543767845258117,
+				"y" : -0.1834149956703186
+			},
+			"anchorB" : 
+			{
+				"x" : 0.3297108709812164,
+				"y" : -0.06661759316921234
+			},
+			"bodyA" : 15,
+			"bodyB" : 14,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "jointName",
+					"string" : "elbowF"
+				}
+			],
+			"enableLimit" : true,
+			"enableMotor" : true,
+			"jointSpeed" : 0,
+			"lowerLimit" : -0.2094395160675049,
+			"maxMotorTorque" : 2500.0,
+			"motorSpeed" : 0,
+			"name" : "elbowF",
+			"refAngle" : 0,
+			"type" : "revolute",
+			"upperLimit" : 0.7853981852531433
+		},
+		
+		{
+			"anchorA" : 
+			{
 				"x" : -0.006957650184631348,
 				"y" : 0.1243629455566406
 			},
@@ -2128,8 +2160,8 @@
 				"x" : -0.04335731267929077,
 				"y" : -0.03128767013549805
 			},
-			"bodyA" : 3,
-			"bodyB" : 4,
+			"bodyA" : 2,
+			"bodyB" : 3,
 			"dampingRatio" : 1,
 			"frequency" : 4,
 			"name" : "joint11",
@@ -2148,8 +2180,8 @@
 				"x" : 0.1173290014266968,
 				"y" : -0.005490899085998535
 			},
-			"bodyA" : 1,
-			"bodyB" : 5,
+			"bodyA" : 0,
+			"bodyB" : 4,
 			"enableLimit" : false,
 			"enableMotor" : false,
 			"jointSpeed" : 0,
@@ -2173,8 +2205,8 @@
 				"x" : 0.03138971328735352,
 				"y" : -0.002334952354431152
 			},
-			"bodyA" : 2,
-			"bodyB" : 5,
+			"bodyA" : 1,
+			"bodyB" : 4,
 			"enableLimit" : false,
 			"enableMotor" : false,
 			"jointSpeed" : 0,
@@ -2198,8 +2230,8 @@
 				"x" : -0.0886521041393280,
 				"y" : 0.04837465286254883
 			},
-			"bodyA" : 5,
-			"bodyB" : 4,
+			"bodyA" : 4,
+			"bodyB" : 3,
 			"dampingRatio" : 0.1,
 			"frequency" : 8,
 			"name" : "joint10",
@@ -2218,8 +2250,8 @@
 				"x" : -0.04691120982170105,
 				"y" : -0.09520816802978516
 			},
-			"bodyA" : 6,
-			"bodyB" : 5,
+			"bodyA" : 5,
+			"bodyB" : 4,
 			"dampingRatio" : 0,
 			"frequency" : 7,
 			"name" : "joint9",
@@ -2238,8 +2270,8 @@
 				"x" : 0.3817180097103119,
 				"y" : 0.4830519556999207
 			},
-			"bodyA" : 6,
-			"bodyB" : 18,
+			"bodyA" : 5,
+			"bodyB" : 17,
 			"dampingRatio" : 1,
 			"frequency" : 6,
 			"name" : "joint8",
@@ -2258,8 +2290,8 @@
 				"x" : 0.2546510100364685,
 				"y" : -0.2430249452590942
 			},
-			"bodyA" : 18,
-			"bodyB" : 7,
+			"bodyA" : 17,
+			"bodyB" : 6,
 			"dampingRatio" : 0,
 			"frequency" : 3,
 			"name" : "joint7",
@@ -2278,8 +2310,8 @@
 				"x" : -0.03348549455404282,
 				"y" : -0.03925788402557373
 			},
-			"bodyA" : 10,
-			"bodyB" : 18,
+			"bodyA" : 9,
+			"bodyB" : 17,
 			"customProperties" : 
 			[
 				
@@ -2289,10 +2321,10 @@
 				}
 			],
 			"enableLimit" : true,
-			"enableMotor" : false,
+			"enableMotor" : true,
 			"jointSpeed" : 0,
 			"lowerLimit" : -1.047197580337524,
-			"maxMotorTorque" : 0,
+			"maxMotorTorque" : 100.0,
 			"motorSpeed" : 0,
 			"name" : "hipB",
 			"refAngle" : 0,
@@ -2308,11 +2340,11 @@
 			},
 			"anchorB" : 
 			{
-				"x" : 0.01243349909782410,
-				"y" : 0.1462990045547485
+				"x" : 0.01243349816650152,
+				"y" : 0.1462989896535873
 			},
-			"bodyA" : 10,
-			"bodyB" : 9,
+			"bodyA" : 9,
+			"bodyB" : 8,
 			"customProperties" : 
 			[
 				
@@ -2322,7 +2354,7 @@
 				}
 			],
 			"enableLimit" : true,
-			"enableMotor" : false,
+			"enableMotor" : true,
 			"jointSpeed" : 0,
 			"lowerLimit" : -1.308996915817261,
 			"maxMotorTorque" : 0,
@@ -2336,7 +2368,7 @@
 		{
 			"anchorA" : 
 			{
-				"x" : -0.002583339810371399,
+				"x" : -0.002583341905847192,
 				"y" : -0.1602950096130371
 			},
 			"anchorB" : 
@@ -2344,8 +2376,8 @@
 				"x" : -0.02108129858970642,
 				"y" : 0.03554099798202515
 			},
-			"bodyA" : 9,
-			"bodyB" : 8,
+			"bodyA" : 8,
+			"bodyB" : 7,
 			"dampingRatio" : 0.15,
 			"frequency" : 4,
 			"name" : "joint5",
@@ -2364,8 +2396,8 @@
 				"x" : -0.03193859010934830,
 				"y" : -0.01512616872787476
 			},
-			"bodyA" : 13,
-			"bodyB" : 18,
+			"bodyA" : 12,
+			"bodyB" : 17,
 			"customProperties" : 
 			[
 				
@@ -2375,10 +2407,10 @@
 				}
 			],
 			"enableLimit" : true,
-			"enableMotor" : false,
+			"enableMotor" : true,
 			"jointSpeed" : 0,
 			"lowerLimit" : -1.047197580337524,
-			"maxMotorTorque" : 0,
+			"maxMotorTorque" : 100.0,
 			"motorSpeed" : 0,
 			"name" : "hipF",
 			"refAngle" : 0,
@@ -2389,16 +2421,16 @@
 		{
 			"anchorA" : 
 			{
-				"x" : -0.002583339810371399,
-				"y" : -0.1602950096130371
+				"x" : -0.002583346562460065,
+				"y" : -0.1602949798107147
 			},
 			"anchorB" : 
 			{
 				"x" : -0.02108129858970642,
 				"y" : 0.03554099798202515
 			},
-			"bodyA" : 12,
-			"bodyB" : 11,
+			"bodyA" : 11,
+			"bodyB" : 10,
 			"dampingRatio" : 0.15,
 			"frequency" : 4,
 			"name" : "joint5",
@@ -2414,11 +2446,11 @@
 			},
 			"anchorB" : 
 			{
-				"x" : 0.01243349909782410,
+				"x" : 0.01243349816650152,
 				"y" : 0.1462990045547485
 			},
-			"bodyA" : 13,
-			"bodyB" : 12,
+			"bodyA" : 12,
+			"bodyB" : 11,
 			"customProperties" : 
 			[
 				
@@ -2437,158 +2469,6 @@
 			"refAngle" : 0,
 			"type" : "revolute",
 			"upperLimit" : -0.3490658402442932
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : 0.2189640104770660,
-				"y" : 0.3997699618339539
-			},
-			"anchorB" : 
-			{
-				"x" : -0.03730359673500061,
-				"y" : 0.09074544906616211
-			},
-			"bodyA" : 18,
-			"bodyB" : 17,
-			"customProperties" : 
-			[
-				
-				{
-					"name" : "jointName",
-					"string" : "shoulderB"
-				}
-			],
-			"enableLimit" : false,
-			"enableMotor" : false,
-			"jointSpeed" : 0,
-			"lowerLimit" : 0,
-			"maxMotorTorque" : 0,
-			"motorSpeed" : 0,
-			"name" : "shoulderB",
-			"refAngle" : 0,
-			"type" : "revolute",
-			"upperLimit" : 0
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : 0.3551858663558960,
-				"y" : -0.06314730644226074
-			},
-			"anchorB" : 
-			{
-				"x" : 0.0003316700458526611,
-				"y" : -0.1897518634796143
-			},
-			"bodyA" : 14,
-			"bodyB" : 17,
-			"customProperties" : 
-			[
-				
-				{
-					"name" : "jointName",
-					"string" : "elbowB"
-				}
-			],
-			"enableLimit" : true,
-			"enableMotor" : false,
-			"jointSpeed" : 0,
-			"lowerLimit" : -0.2094395160675049,
-			"maxMotorTorque" : 0,
-			"motorSpeed" : 0,
-			"name" : "elbowB",
-			"refAngle" : 0,
-			"type" : "revolute",
-			"upperLimit" : 0.7853981852531433
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : 0.003543779253959656,
-				"y" : -0.1834149360656738
-			},
-			"anchorB" : 
-			{
-				"x" : 0.3297108709812164,
-				"y" : -0.06661760807037354
-			},
-			"bodyA" : 16,
-			"bodyB" : 15,
-			"customProperties" : 
-			[
-				
-				{
-					"name" : "jointName",
-					"string" : "elbowF"
-				}
-			],
-			"enableLimit" : true,
-			"enableMotor" : false,
-			"jointSpeed" : 0,
-			"lowerLimit" : -0.2094395160675049,
-			"maxMotorTorque" : 0,
-			"motorSpeed" : 0,
-			"name" : "elbowF",
-			"refAngle" : 0,
-			"type" : "revolute",
-			"upperLimit" : 0.7853981852531433
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : -0.03227049857378006,
-				"y" : -0.01438850164413452
-			},
-			"anchorB" : 
-			{
-				"x" : -0.03535920009016991,
-				"y" : 0.7100889682769775
-			},
-			"bodyA" : 18,
-			"bodyB" : 0,
-			"dampingRatio" : 0,
-			"frequency" : 0,
-			"name" : "joint0",
-			"refAngle" : 0,
-			"type" : "weld"
-		},
-		
-		{
-			"anchorA" : 
-			{
-				"x" : -0.01542067527770996,
-				"y" : 0.1050360202789307
-			},
-			"anchorB" : 
-			{
-				"x" : 0.2189640104770660,
-				"y" : 0.3997699618339539
-			},
-			"bodyA" : 16,
-			"bodyB" : 18,
-			"customProperties" : 
-			[
-				
-				{
-					"name" : "jointName",
-					"string" : "shoulderF"
-				}
-			],
-			"enableLimit" : false,
-			"enableMotor" : false,
-			"jointSpeed" : 0,
-			"lowerLimit" : 0,
-			"maxMotorTorque" : 0,
-			"motorSpeed" : 0,
-			"name" : "shoulderF",
-			"refAngle" : 0,
-			"type" : "revolute",
-			"upperLimit" : 0
 		}
 	],
 	"positionIterations" : 3,

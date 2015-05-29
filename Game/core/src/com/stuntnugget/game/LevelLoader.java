@@ -43,10 +43,10 @@ public class LevelLoader {
 					e);
 		}
 		RubeSceneLoader loader = new RubeSceneLoader();
-		RubeScene scene = loader.loadScene(Gdx.files.internal("rube/" + level.rubeFile));
+		RubeScene scene = loader.loadScene(Gdx.files.internal("levels/" + level.rubeFile));
 		Filter filter = new Filter();
 		filter.categoryBits = GameScreen.GROUND_LAYER;
-		filter.maskBits = GameScreen.PLAYER_BODY_LAYER;
+		filter.maskBits = GameScreen.PLAYER_BODY_LAYER | GameScreen.STAND_PROP;
 		Array<Fixture> fixtures = scene.getFixtures();
 		for (int i = 0; i < fixtures.size; ++i) {
 			fixtures.get(i).setFilterData(filter);
