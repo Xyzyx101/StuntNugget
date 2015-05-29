@@ -24,7 +24,7 @@ public class GameScreen extends ScreenAdapter {
 	public static short STAR_TRIGGER = 0x1000;
 
 	private enum State {
-		Start, Control, Shoot
+		Start, Control, Shoot, End
 	}
 
 	private State state = State.Start;
@@ -44,12 +44,17 @@ public class GameScreen extends ScreenAdapter {
 	private Array<Star> stars;
 
 	private boolean dirtyStars = false;
-	
+
 	private long cluckId;
-	
+
 	Vector3 touchPoint;
-	
+
 	private int score = 0;
+	private Vector2 levelSize;
+	private float endTimer;
+	private float threeStarEndTime;
+	private float normalEndTime;
+	
 
 	public GameScreen(StuntNugget game, int level) {
 		camera = game.getCamera();
@@ -59,7 +64,7 @@ public class GameScreen extends ScreenAdapter {
 		touchPoint = new Vector3();
 
 		debugRenderer = new Box2DDebugRenderer();
-	
+
 		LevelLoader levelLoader = new LevelLoader(0, this);
 		player = levelLoader.getPlayer();
 		Vector2 playerPosition = player.getPosition();
@@ -67,6 +72,7 @@ public class GameScreen extends ScreenAdapter {
 		world = levelLoader.getWorld();
 		stars = levelLoader.getStars();
 		world.setContactListener(new CollisionListener());
+		levelSize = levelLoader.getLevelSize();
 		SoundManager.startMusic(SoundManager.MUSIC.WINNER_WINNER);
 		cluckId = SoundManager.play(SoundManager.SFX.CLUCKING);
 	}
@@ -79,7 +85,7 @@ public class GameScreen extends ScreenAdapter {
 	}
 
 	public void update(float dt) {
-		if(dirtyStars) {
+		if (dirtyStars) {
 			removeStars();
 		}
 		switch (state) {
@@ -102,7 +108,14 @@ public class GameScreen extends ScreenAdapter {
 			}
 			break;
 		case Shoot:
-
+			float velocitySquared = player.getVelocity().x * player.getVelocity().x + player.getVelocity().y * player.getVelocity().y;
+			Gdx.app.log("GameScreen",  "" + velocitySquared );
+			if(velocitySquared < 1f) {
+				state = State.End;
+			}
+			break;
+		case End:
+			Gdx.app.log("GameScreen", "End");
 			break;
 		}
 
@@ -111,9 +124,8 @@ public class GameScreen extends ScreenAdapter {
 			world.step(secondsPerStep, velocityIter, positionIter);
 			accumulator -= secondsPerStep;
 		}
-
 		player.update();
-		camera.setPosition(player.getPosition());
+		camera.setPositionWithLevelBounds(player.getPosition(), levelSize);
 		camera.update();
 	}
 
@@ -123,10 +135,10 @@ public class GameScreen extends ScreenAdapter {
 		Matrix4.mul(scaledMat.val, StuntNugget.spriteToBox2DMatrix);
 		spriteBatch.setProjectionMatrix(scaledMat);
 		spriteBatch.begin();
-		for(int i = 0; i < stars.size; ++i) {
+		for (int i = 0; i < stars.size; ++i) {
 			stars.get(i).draw(spriteBatch);
 		}
-		if (state != State.Shoot) {
+		if (state == State.Start || state == State.Control) {
 			controller.draw(spriteBatch);
 		}
 		player.draw(spriteBatch);
@@ -139,17 +151,17 @@ public class GameScreen extends ScreenAdapter {
 		update(delta);
 		draw();
 	}
-	
+
 	public void checkDirtyStars() {
 		dirtyStars = true;
 	}
-	
+
 	private void removeStars() {
 		dirtyStars = false;
 		Array<Star> tempStars = new Array<Star>();
 		for (int i = 0; i < stars.size; ++i) {
 			Star thisStar = stars.get(i);
-			if(thisStar.isDead()) {
+			if (thisStar.isDead()) {
 				score += 1;
 				thisStar.kill();
 				Gdx.app.log("GameScreen", "Score:" + score);

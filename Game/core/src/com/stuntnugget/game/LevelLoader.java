@@ -74,4 +74,8 @@ public class LevelLoader {
 	public Array<Star> getStars() {
 		return stars;
 	}
+
+	public Vector2 getLevelSize() {
+		return new Vector2(level.width, level.height);
+	}
 }

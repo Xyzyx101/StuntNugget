@@ -66,7 +66,7 @@ public class Player {
 			} else if (type.equals("cosmetic")) {
 				fixtures.get(i).setFilterData(cosmeticFilter);
 			}
-			fixture.setUserData(this);
+			
 		}
 		Array<Body> bodies = scene.getBodies();
 		for (int i = 0; i < bodies.size; ++i) {
@@ -76,6 +76,10 @@ public class Player {
 			if (bodyType.equals("main")) {
 				primaryBody = thisBody;
 			}
+		}
+		Array<Fixture> primaryFixtures = primaryBody.getFixtureList();
+		for(int i = 0; i < primaryFixtures.size; ++i) {
+			primaryFixtures.get(i).setUserData(this);
 		}
 	}
 
@@ -124,5 +128,9 @@ public class Player {
 		Vector2 powerVector = maxPower.cpy().scl(power).rotate(angle);
 		primaryBody.applyLinearImpulse(powerVector, primaryBody.getPosition(),
 				true);
+	}
+
+	public Vector2 getVelocity() {
+		return primaryBody.getLinearVelocity();
 	}
 }

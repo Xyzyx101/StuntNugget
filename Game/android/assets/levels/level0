@@ -1,7 +1,7 @@
 {
 	rubeFile : "floor.json",
-	width : 10000,
-	height : 2000,
+	width : 50,
+	height : 35,
 	player : {
 		x: 4,
 		y: 3
