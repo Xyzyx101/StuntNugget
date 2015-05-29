@@ -109,13 +109,14 @@ public class GameScreen extends ScreenAdapter {
 			break;
 		case Shoot:
 			float velocitySquared = player.getVelocity().x * player.getVelocity().x + player.getVelocity().y * player.getVelocity().y;
-			Gdx.app.log("GameScreen",  "" + velocitySquared );
+			//TODO min speed
+			//Gdx.app.log("GameScreen",  "" + velocitySquared );
 			if(velocitySquared < 1f) {
 				state = State.End;
 			}
 			break;
 		case End:
-			Gdx.app.log("GameScreen", "End");
+			//Gdx.app.log("GameScreen", "End");
 			break;
 		}
 
