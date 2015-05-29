@@ -47,7 +47,7 @@ public class Poser {
 					"jointName");
 			poseJoints.get(i).setUserData(jointName);
 		}
-		
+
 		scene.clear();
 		scene = loader.loadScene(Gdx.files.internal("rube/chicken-cheer.json"));
 		poseJoints = new Array<Joint>();
@@ -58,17 +58,14 @@ public class Poser {
 					"jointName");
 			poseJoints.get(i).setUserData(jointName);
 		}
-/*
-		scene = loader.loadScene(Gdx.files.internal("rube/chicken-fly.json"));
-		poseJoints = scene.getJoints();
-		poseMap.put(POSE.FLY, poseJoints);
-		for (int i = 0; i < poseJoints.size; ++i) {
-			String jointName = (String) scene.getCustom(poseJoints.get(i),
-					"jointName");
-			poseJoints.get(i).setUserData(jointName);
-		}
-*/
-		Gdx.app.log("Poser", "gort");
+		/*
+		 * scene =
+		 * loader.loadScene(Gdx.files.internal("rube/chicken-fly.json"));
+		 * poseJoints = scene.getJoints(); poseMap.put(POSE.FLY, poseJoints);
+		 * for (int i = 0; i < poseJoints.size; ++i) { String jointName =
+		 * (String) scene.getCustom(poseJoints.get(i), "jointName");
+		 * poseJoints.get(i).setUserData(jointName); }
+		 */
 	}
 
 	public void changePose(Poser.POSE pose) {
@@ -91,10 +88,8 @@ public class Poser {
 					case RevoluteJoint:
 						RevoluteJoint joint = (RevoluteJoint) joints
 								.get(jointIndex);
-						boolean foo = joint.isMotorEnabled();
 						RevoluteJoint targetJoint = (RevoluteJoint) targetJoints
 								.get(targetIndex);
-						boolean bar = targetJoint.isMotorEnabled();
 						joint.enableMotor(targetJoint.isMotorEnabled());
 						joint.setMaxMotorTorque(targetJoint.getMaxMotorTorque());
 						break;
@@ -111,7 +106,6 @@ public class Poser {
 	}
 
 	public void update() {
-		Gdx.app.log("Poser", "" + currentPose);
 		Array<Joint> targetJoints = poseMap.get(currentPose);
 		for (int jointIndex = 0; jointIndex < joints.size; ++jointIndex) {
 			if (joints.get(jointIndex).getUserData() == null) {
@@ -132,9 +126,6 @@ public class Poser {
 								.get(jointIndex);
 						RevoluteJoint targetJoint = (RevoluteJoint) targetJoints
 								.get(targetIndex);
-						boolean foo = joint.isMotorEnabled();
-						float bar = joint.getMaxMotorTorque();
-						Gdx.app.log("Poser", "" + foo);
 						float angleError = joint.getJointAngle()
 								- targetJoint.getJointAngle();
 						joint.setMotorSpeed(-gain * angleError);

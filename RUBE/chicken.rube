@@ -84,31 +84,6 @@
     },
     
     {
-      "class" : "body",
-      "comboboxEntries" : 
-      [
-        
-        {
-          "entry" : "main"
-        },
-        
-        {
-          "entry" : "standProp"
-        }
-      ],
-      "displayName" : "bodyType",
-      "name" : "bodyType",
-      "type" : "string"
-    },
-    
-    {
-      "class" : "world",
-      "displayName" : "atlas",
-      "name" : "atlas",
-      "type" : "string"
-    },
-    
-    {
       "class" : "fixture",
       "comboboxEntries" : 
       [
@@ -139,6 +114,31 @@
       "displayName" : "drawOrder",
       "name" : "drawOrder",
       "type" : "int"
+    },
+    
+    {
+      "class" : "body",
+      "comboboxEntries" : 
+      [
+        
+        {
+          "entry" : "main"
+        },
+        
+        {
+          "entry" : "standProp"
+        }
+      ],
+      "displayName" : "bodyType",
+      "name" : "bodyType",
+      "type" : "string"
+    },
+    
+    {
+      "class" : "world",
+      "displayName" : "atlas",
+      "name" : "atlas",
+      "type" : "string"
     }
   ],
   "metaworld" : 
@@ -203,7 +203,7 @@
             "friction" : 0.2,
             "id" : 1,
             "name" : "fixture0",
-            "restitution" : 0.8,
+            "restitution" : 1,
             "shapes" : 
             [
               
@@ -944,7 +944,6 @@
             ],
             "density" : 0.6,
             "filter-maskBits" : 65534,
-            "friction" : 0.3,
             "id" : 14,
             "name" : "fixture7",
             "shapes" : 
@@ -1009,7 +1008,6 @@
             ],
             "density" : 1,
             "filter-maskBits" : 65534,
-            "friction" : 0.5,
             "id" : 15,
             "name" : "fixture8",
             "shapes" : 

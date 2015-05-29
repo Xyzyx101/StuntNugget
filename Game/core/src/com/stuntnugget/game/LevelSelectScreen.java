@@ -45,6 +45,9 @@ public class LevelSelectScreen extends UIScreen {
 			}
 			for(int i = 0; i < levelButtons.length; ++i) {
 				if(levelButtons[i].contains(touchPoint.x, touchPoint.y)) {
+					if(Settings.instance().getLevelStatus(i) == -1) {
+						return;
+					}
 					SoundManager.stopMusic();
 					SoundManager.play(SoundManager.SFX.DING);
 					game.setScreen(new GameScreen(game, i));

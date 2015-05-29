@@ -1,0 +1,24 @@
+{
+	rubeFile : "level1.json",
+	width : 50,
+	height : 50,
+	player : {
+		x: 5,
+		y: 3
+		}
+	stars: [
+		{
+			x: 45,
+			y: 45
+		},
+		{
+			x: 40,
+			y: 45
+		},
+		{
+			x: 2,
+			y: 45
+		}
+	],
+	barrels: []
+}
